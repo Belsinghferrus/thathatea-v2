@@ -1,0 +1,56 @@
+/* 1. Google Fonts MUST be the very first line */
+@import url('https://fonts.googleapis.com/css2?family=Allura&family=Mona+Sans:ital,wght@0,200..900;1,200..900&family=Anton:wght@400;500;600;700&display=swap');
+
+/* 2. Tailwind CSS import */
+@import "tailwindcss";
+
+/* 3. Your Custom Theme (This must come BEFORE any @layer) */
+@theme {
+  /* Colors */
+  --color-warm-cream: #F5DFC3;
+  --color-deep-coffee: #2C1810;
+  --color-roast-brown: #4D2F1C;
+  --color-caramel: #A76024;
+  --color-soft-ivory: #F6EEDF;
+
+  /* Fonts */
+  --font-thunder: 'Anton', sans-serif;
+  --font-allura: 'Allura', cursive;
+  --font-mona: 'Mona Sans', sans-serif;
+}
+
+/* 4. Base Styles */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-warm-cream text-deep-coffee font-mona antialiased;
+  }
+
+  ::selection {
+    @apply bg-caramel text-white;
+  }
+}
+
+/* 5. Custom Typography Utility Classes */
+@layer components {
+  .heading-primary {
+    @apply font-thunder font-bold uppercase leading-[0.9] tracking-tight;
+  }
+  
+  .heading-secondary {
+    @apply font-allura text-caramel;
+  }
+
+  .btn-primary {
+    @apply bg-deep-coffee text-warm-cream font-mona font-semibold py-3 px-6 rounded-full transition-all duration-300 hover:bg-roast-brown;
+  }
+
+  .btn-accent {
+    @apply bg-caramel text-white font-mona font-semibold py-3 px-6 rounded-full transition-all duration-300 hover:bg-deep-coffee;
+  }
+}
+
+
