@@ -114,7 +114,6 @@ function Hero() {
       ref={rootRef} 
       className="relative isolate overflow-hidden text-deep-coffee min-h-[100svh] lg:min-h-screen"
     >
-      {/* Background Image & Overlays */}
       <div
         aria-hidden="true"
         className="absolute inset-0 bg-cover bg-center "
