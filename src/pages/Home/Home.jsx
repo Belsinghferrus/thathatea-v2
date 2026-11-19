@@ -6,6 +6,7 @@ import Specialties from '../../sections/Home/Specialties'
 import Ticker from '../../sections/Home/Ticker'
 import MenuSection from '../../sections/Home/MenuSection'
 import Technology from '../../sections/Home/Technology'
+import FeaturesBar from '../../sections/Home/FeaturesBar'
 
 const Home = () => {
   return (
@@ -19,6 +20,7 @@ const Home = () => {
         <Ticker />
         <MenuSection />
         <Technology />
+        <FeaturesBar />
         
       </main>
     </>
