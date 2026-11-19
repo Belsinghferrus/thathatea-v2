@@ -7,6 +7,7 @@ import Ticker from '../../sections/Home/Ticker'
 import MenuSection from '../../sections/Home/MenuSection'
 import Technology from '../../sections/Home/Technology'
 import FeaturesBar from '../../sections/Home/FeaturesBar'
+import Franchise from '../../sections/Home/Franchise'
 
 const Home = () => {
   return (
@@ -21,7 +22,7 @@ const Home = () => {
         <MenuSection />
         <Technology />
         <FeaturesBar />
-        
+        <Franchise />
       </main>
     </>
   )
