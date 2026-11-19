@@ -122,8 +122,8 @@ function Hero() {
 
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_48%,rgba(167,96,36,0.08),transparent_20%),radial-gradient(circle_at_50%_100%,rgba(44,24,16,0.08),transparent_30%)] " />
 
-      <div className="relative mx-auto flex w-full max-w-[1600px] flex-col justify-center px-6 pb-12 pt-32 sm:px-10 lg:px-16 lg:pb-0 lg:pt-24 h-full min-h-[100svh]">
-        
+      <div className="relative mx-auto flex w-full max-w-[1600px] flex-col justify-center px-6 pb-12 pt-30 sm:px-10 lg:px-16 lg:pb-0 lg:pt-20 h-full min-h-[100svh]">
+
         <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[52%] lg:block xl:w-[54%]">
           <div className="relative h-full w-full">
             <div className="hero-spotlight absolute bottom-[8%] right-[10%] h-[52vh] w-[52vh] rounded-full bg-[radial-gradient(circle,rgba(237,184,115,0.22)_0%,rgba(237,184,115,0.10)_34%,rgba(237,184,115,0)_72%)] blur-2xl" />
