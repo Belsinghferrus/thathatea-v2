@@ -4,6 +4,8 @@ import Hero from '../../sections/Home/Hero'
 import Story from '../../sections/Home/StorySection'
 import Specialties from '../../sections/Home/Specialties'
 import Ticker from '../../sections/Home/Ticker'
+import MenuSection from '../../sections/Home/MenuSection'
+import Technology from '../../sections/Home/Technology'
 
 const Home = () => {
   return (
@@ -15,6 +17,9 @@ const Home = () => {
         <Specialties />
         <Story />
         <Ticker />
+        <MenuSection />
+        <Technology />
+        
       </main>
     </>
   )
