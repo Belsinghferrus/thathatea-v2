@@ -3,6 +3,7 @@ import Navbar from '../../components/Navbar'
 import Hero from '../../sections/Home/Hero'
 import Story from '../../sections/Home/StorySection'
 import Specialties from '../../sections/Home/Specialties'
+import Ticker from '../../sections/Home/Ticker'
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
         <Hero />
         <Specialties />
         <Story />
+        <Ticker />
       </main>
     </>
   )
