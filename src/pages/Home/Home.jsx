@@ -4,11 +4,11 @@ import Hero from '../../sections/Home/Hero'
 import Story from '../../sections/Home/StorySection'
 import Specialties from '../../sections/Home/Specialties'
 import Ticker from '../../sections/Home/Ticker'
-import MenuSection from '../../sections/Home/MenuSection'
 import Technology from '../../sections/Home/Technology'
 import FeaturesBar from '../../sections/Home/FeaturesBar'
 import Franchise from '../../sections/Home/Franchise'
 import Footer from '../../components/Footer'
+import Menu from '../../sections/Home/Menu'
 
 const Home = () => {
   return (
@@ -20,7 +20,7 @@ const Home = () => {
         <Specialties />
         <Story />
         <Ticker />
-        <MenuSection />
+        <Menu />
         <Technology />
         <FeaturesBar />
         <Franchise />

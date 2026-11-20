@@ -7,7 +7,6 @@ import { ROUTES } from "../constant/routes.js";
 import logo from "../assets/images/logo.webp";
 import footerBg from "../assets/images/footer.png"; // The tea estate background
 import footerTea from "../assets/images/home/tea.png"; // The tea cup & cookies on the right
-import cakeImg from "../assets/images/home/cake.png"; // The cake on the CTA card
 
 const footerLinks = [
     { name: "HOME", path: ROUTES.HOME },
