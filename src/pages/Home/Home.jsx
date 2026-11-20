@@ -8,6 +8,7 @@ import MenuSection from '../../sections/Home/MenuSection'
 import Technology from '../../sections/Home/Technology'
 import FeaturesBar from '../../sections/Home/FeaturesBar'
 import Franchise from '../../sections/Home/Franchise'
+import Footer from '../../components/Footer'
 
 const Home = () => {
   return (
@@ -23,6 +24,7 @@ const Home = () => {
         <Technology />
         <FeaturesBar />
         <Franchise />
+        <Footer />
       </main>
     </>
   )
