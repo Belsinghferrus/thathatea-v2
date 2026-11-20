@@ -1,7 +1,6 @@
 import React from "react";
 import { Coffee } from "lucide-react";
 
-// --- REPLACE THESE IMPORTS WITH YOUR ACTUAL IMAGE PATHS ---
 import mascotNamaste from "../../assets/images/story/story-mascot-hero.png";
 import fullBgItems from "../../assets/images/story/storybg.png"; 
 import decoWheat from "../../assets/images/story/grain.png";
