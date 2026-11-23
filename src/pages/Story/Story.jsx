@@ -7,6 +7,7 @@ import FoundersVision from '../../sections/Story/FoundersVision'
 import Footer from '../../components/Footer'
 import Awards from '../../sections/Story/Awards'
 import StatsBreak from '../../sections/Story/StatsBreak'
+import TwoExpressions from '../../sections/Story/TwoExpressions'
 
 
 const Story = () => {
@@ -20,6 +21,7 @@ const Story = () => {
             <FoundersVision />
             <Awards />
             <StatsBreak />
+            <TwoExpressions />
             <Footer/>
             </main>
 
