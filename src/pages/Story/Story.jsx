@@ -3,6 +3,7 @@ import Navbar from '../../components/Navbar'
 import StoryHero from '../../sections/Story/Hero'
 import WhoWeAre from '../../sections/Story/WhoWeAre'
 import HowItBegan from '../../sections/Story/How'
+import FoundersVision from '../../sections/Story/FoundersVision'
 
 const Story = () => {
     return (
@@ -12,6 +13,7 @@ const Story = () => {
             <StoryHero />
             <WhoWeAre />
             <HowItBegan />
+            <FoundersVision />
             </main>
 
         </>
