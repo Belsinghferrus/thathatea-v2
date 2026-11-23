@@ -14,10 +14,6 @@ import chaiDeco from "../../assets/images/story/teapot.png";
 function TwoExpressions() {
   return (
     <section className="relative w-full overflow-hidden py-20 lg:py-32">
-      
-      {/* =========================================
-          BACKGROUND IMAGE & COLOR OVERLAY
-      ========================================= */}
       <div className="absolute inset-0 z-0">
         <img 
           src={sectionBg} 

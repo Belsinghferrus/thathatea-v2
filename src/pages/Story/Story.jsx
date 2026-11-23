@@ -8,6 +8,8 @@ import Footer from '../../components/Footer'
 import Awards from '../../sections/Story/Awards'
 import StatsBreak from '../../sections/Story/StatsBreak'
 import TwoExpressions from '../../sections/Story/TwoExpressions'
+import FamilyBanner from '../../sections/Story/FamilyBanner'
+import CallToAction from '../../sections/Story/CallToAction'
 
 
 const Story = () => {
@@ -22,6 +24,8 @@ const Story = () => {
             <Awards />
             <StatsBreak />
             <TwoExpressions />
+            <FamilyBanner />
+            <CallToAction />
             <Footer/>
             </main>
 
