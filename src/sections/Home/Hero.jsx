@@ -10,7 +10,7 @@ import { getGraphemes } from "../../utils/getGraphemes.js";
 
 
 // 1. Language Array for the animation
-const CHAI_LANGUAGES = ["தேநீர்", "ಚಹಾ", "చాయ్", "चाय", "Chai"];
+const CHAI_LANGUAGES = ["தேநீர்", "ಚಹಾ", "టీ", "चाय", "Chai", "ചായ"];
 
 // 2. Custom Icon for "Our Story"
 function StoryIcon() {

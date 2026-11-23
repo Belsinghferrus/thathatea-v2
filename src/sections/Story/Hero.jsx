@@ -74,7 +74,7 @@ function StoryHero() {
       {/* =========================================
           MASCOT (Mobile: normal flow, Desktop: absolute bottom)
       ========================================= */}
-      <div className="relative z-10 mt-12 flex w-full justify-center lg:absolute lg:bottom-0 lg:right-[10%] xl:right-[20%] lg:mt-0 lg:w-auto">
+      <div className="relative z-10 mt-20 flex w-full justify-center lg:absolute bottom-0 lg:right-[10%] xl:right-[20%] lg:mt-0 lg:w-auto">
         <img
           src={mascotNamaste}
           alt="Thatha Tea mascot in namaste pose"
