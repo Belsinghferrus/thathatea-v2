@@ -26,11 +26,11 @@ const milestones = [
 
 function HowItBegan() {
   return (
-    // Outer section has the gradient, ensuring the left and right edges have the #EEDCC2 color
-    <section className="relative flex max-h-[60vh] w-full flex-col justify-center overflow-hidden bg-[linear-gradient(90deg,#EEDCC2_0%,#F6EEDF_15%,#F6EEDF_85%,#EEDCC2_100%)] py-16 lg:py-24">
+    // Changed max-h to min-h to prevent clipping. Gradient creates the solid #F6EEDF center.
+    <section className="relative flex min-h-[60vh] w-full flex-col justify-center overflow-hidden bg-[linear-gradient(90deg,#EEDCC2_0%,#F6EEDF_15%,#F6EEDF_85%,#EEDCC2_100%)] py-16 lg:py-24">
       
-      {/* LEFT BACKGROUND SKETCH - Reduced height and pinned to bottom left */}
-      <div className="pointer-events-none absolute bottom-0 -left-20 z-0 hidden h-[400px] w-[25%] lg:block xl:h-[500px]">
+      {/* LEFT BACKGROUND SKETCH - Adjusted responsive sizes */}
+      <div className="pointer-events-none absolute -left-10 bottom-0 z-0 hidden h-[300px] w-[20%] lg:block lg:h-[350px] lg:w-[25%] xl:h-[450px]">
         <img 
           src={leftBgSketch} 
           alt="" 
@@ -44,7 +44,7 @@ function HowItBegan() {
       <div className="relative z-10 mx-auto flex w-full max-w-[1300px] flex-col items-center px-6 lg:px-8">
         
         {/* HEADER SECTION */}
-        <div className="flex flex-col items-center pt-14 text-center">
+        <div className="flex flex-col items-center text-center">
           <h2 className="font-allura text-4xl text-[#A76024] sm:text-5xl lg:text-7xl">
             How It All Began
           </h2>
@@ -54,28 +54,28 @@ function HowItBegan() {
         </div>
 
         {/* 3-COLUMN GRID */}
-        <div className="mt-16 grid w-full grid-cols-1 gap-12 md:grid-cols-3 lg:mt-24 lg:gap-8 xl:gap-16">
+        <div className="mt-12 grid w-full grid-cols-1 gap-10 md:grid-cols-3 md:gap-6 lg:mt-20 lg:gap-8 xl:gap-16">
           {milestones.map((item, index) => (
             <div 
               key={index} 
               className="flex flex-col items-center text-center"
             >
-              {/* Image Container with max-h-40 */}
-              <div className="flex h-[160px] w-full items-end justify-center">
+              {/* Image Container - Responsive Height */}
+              <div className="flex h-[140px] w-full items-end justify-center md:h-[160px]">
                 <img 
                   src={item.img} 
                   alt={item.title} 
-                  className="max-h-40 w-auto max-w-full object-contain object-bottom"
+                  className="max-h-full w-auto max-w-full object-contain object-bottom"
                 />
               </div>
 
               {/* Title */}
-              <h3 className="mt-8 font-thunder text-2xl font-bold uppercase tracking-wide text-[#2C1810] lg:text-[1.75rem]">
+              <h3 className="mt-6 font-thunder text-2xl font-bold uppercase tracking-wide text-[#2C1810] lg:mt-8 lg:text-[1.75rem]">
                 {item.title}
               </h3>
 
               {/* Description */}
-              <p className="mt-3 max-w-[320px] font-mona text-xs leading-relaxed text-[#2C1810]/70 sm:text-sm lg:text-[15px]">
+              <p className="mt-3 max-w-[320px] font-mona text-sm leading-relaxed text-[#2C1810]/70 lg:text-[15px]">
                 {item.desc}
               </p>
             </div>
