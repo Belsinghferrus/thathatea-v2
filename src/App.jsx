@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home/Home.jsx";
 import Story from "./pages/Story/Story.jsx";
+import Menu from "./pages/Menu/Menu.jsx";
 
 
 function AppRouter() {
@@ -11,9 +12,9 @@ function AppRouter() {
          <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/story" element={<Story />} />
-            
-            {/* <Route path="/story" element={<Story />} />
             <Route path="/menu" element={<Menu />} />
+
+            {/* <Route path="/story" element={<Story />} />
             <Route path="/franchise" element={<Franchise />} />
             <Route path="/career" element={<Career />} />
             <Route path="/contact" element={<Contact />} />
