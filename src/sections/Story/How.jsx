@@ -1,7 +1,7 @@
 import React from "react";
 
 // --- REPLACE THESE IMPORTS WITH YOUR ACTUAL IMAGE PATHS ---
-import leftBgSketch from "../../assets/images/story/how-bg.png"; 
+import leftBgSketch from "../../assets/images/story/how-bg1.png"; 
 import imgKettle from "../../assets/images/story/wisdom.png"; 
 import imgShop from "../../assets/images/story/beginning.png"; 
 import imgMap from "../../assets/images/story/family.png"; 
