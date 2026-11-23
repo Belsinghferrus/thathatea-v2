@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home/Home.jsx";
 import Story from "./pages/Story/Story.jsx";
+import Franchise from "./pages/Franchise/Franchise.jsx";
 
 
 function AppRouter() {
@@ -11,6 +12,7 @@ function AppRouter() {
          <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/story" element={<Story />} />
+            <Route path="/franchise" element={<Franchise />} />
             
             {/* <Route path="/story" element={<Story />} />
             <Route path="/menu" element={<Menu />} />
