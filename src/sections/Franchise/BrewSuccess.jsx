@@ -54,7 +54,7 @@ function BrewSuccess() {
         {/* Right Column: Content, CTAs, and Stats */}
         <div className="flex flex-col items-center text-center lg:col-span-6 lg:items-start lg:text-left pb-12 sm:pb-14 lg:pb-16 xl:pb-20">
           {/* Main Heading */}
-          <h2 className="font-thunder text-4xl font-bold uppercase leading-[0.95] tracking-[-0.01em] text-deep-coffee sm:text-5xl lg:text-6xl xl:text-[4.2rem]">
+          <h2 className="font-thunder text-4xl  uppercase leading-[1] tracking-[-0.01em] text-deep-coffee sm:text-5xl lg:text-6xl xl:text-[4.2rem]">
             Let's Brew Success<br />Together!
           </h2>
 
@@ -100,10 +100,10 @@ function BrewSuccess() {
                   index !== 0 ? "sm:border-l sm:border-deep-coffee/15 sm:pl-5" : ""
                 }`}
               >
-                <span className="font-thunder text-3xl font-bold text-deep-coffee sm:text-4xl">
+                <span className="font-thunder text-3xl  text-deep-coffee sm:text-4xl">
                   {stat.value}
                 </span>
-                <span className="mt-0.5 font-mona text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-deep-coffee/60">
+                <span className="mt-0.5  text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-deep-coffee/60">
                   {stat.label}
                 </span>
               </div>

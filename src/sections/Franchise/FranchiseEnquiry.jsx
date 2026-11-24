@@ -18,7 +18,7 @@ function FranchiseEnquiry() {
         <img
           src={enquiryBg}
           alt=""
-          className="h-full w-full object-cover object-center opacity-75 mix-blend-multiply"
+          className="h-full w-full object-cover object-center opacity-50 mix-blend-multiply"
         />
       </div>
 
@@ -36,7 +36,7 @@ function FranchiseEnquiry() {
           {/* Right Column: Heading, Subtitle, CTA & Contact + Chai Asset */}
           <div className="relative flex flex-col items-center text-center lg:col-span-7 lg:items-start lg:text-left">
             {/* Main Heading - strictly 3 lines with whitespace-nowrap and exact proportions */}
-            <h2 className="font-thunder font-bold uppercase leading-[0.93] tracking-[-0.01em] text-[#2C1810] text-[34px] sm:text-[44px] md:text-[52px] lg:text-[48px] xl:text-[58px] 2xl:text-[64px]">
+            <h2 className="font-thunder uppercase leading-[1] tracking-[-0.01em] text-[#2C1810] text-[34px] sm:text-[44px] md:text-[52px] lg:text-[48px] xl:text-[58px] 2xl:text-[64px]">
               <span className="block whitespace-nowrap">&ldquo;DON&apos;T JUST OPEN A STORE.</span>
               <span className="block whitespace-nowrap">CREATE THE PLACE PEOPLE</span>
               <span className="block whitespace-nowrap">LOOK FOR.&rdquo;</span>

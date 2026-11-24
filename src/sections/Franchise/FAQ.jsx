@@ -60,7 +60,7 @@ function FAQ() {
       <div className="relative z-10 mx-auto grid w-full max-w-[1600px] grid-cols-1 items-start gap-12 px-6 sm:px-12 lg:grid-cols-12 lg:gap-12 lg:px-16 xl:px-24">
         {/* Left Column: Heading and Intro */}
         <div className="flex flex-col items-center text-center lg:col-span-5 lg:items-start lg:text-left lg:pt-4">
-          <h2 className="font-thunder text-4xl font-bold uppercase leading-[0.95] tracking-[-0.01em] text-deep-coffee sm:text-5xl lg:text-6xl xl:text-[4.2rem]">
+          <h2 className="font-thunder text-4xl  uppercase leading-[1] tracking-[-0.01em] text-deep-coffee sm:text-5xl lg:text-6xl xl:text-[4.2rem]">
             Good Questions.
             <br />
             Clear Answers.

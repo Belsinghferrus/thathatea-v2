@@ -50,7 +50,7 @@ function WhyPartner() {
         </div>
 
         {/* 5 Horizontally Aligned Benefits */}
-        <div className="mt-14 grid w-full grid-cols-1 gap-10 sm:grid-cols-2 md:gap-8 lg:mt-20 lg:grid-cols-5 lg:gap-6 xl:gap-8">
+        <div className="mt-14 grid w-[90%] grid-cols-1 gap-10 sm:grid-cols-2 md:gap-8 lg:mt-20 lg:grid-cols-5 lg:gap-6 xl:gap-8">
           {benefits.map((item, index) => {
             const IconComponent = item.icon;
             return (
@@ -64,7 +64,7 @@ function WhyPartner() {
                 </div>
 
                 {/* Benefit Title - Exact Figma Specs: Mona Sans, 600 SemiBold, 22px, 33px line-height, uppercase, #2C1810 */}
-                <h3 className="mt-5 font-mona text-base font-semibold uppercase tracking-normal text-[#2C1810] sm:text-lg lg:text-[22px] lg:leading-[33px]">
+                <h3 className="mt-5  text-base font-semibold uppercase tracking-normal text-[#2C1810] sm:text-lg lg:text-[18px] lg:leading-[33px]">
                   {item.title}
                 </h3>
 
