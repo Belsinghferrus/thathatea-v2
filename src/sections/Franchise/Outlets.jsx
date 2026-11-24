@@ -132,9 +132,8 @@ export default function FeaturedOutletsSection() {
                             className="max-w-2xl"
                         >
                             <span
-                                className="text-[3.5rem] leading-none text-transparent sm:text-[5rem] lg:text-[6.5rem]"
+                                className="font-thunder text-[3.5rem] leading-none text-transparent sm:text-[5rem] lg:text-[6.5rem]"
                                 style={{
-                                    fontFamily: "'Bebas Neue', sans-serif",
                                     WebkitTextStroke: "1.5px #F2C785",
                                 }}
                             >
@@ -144,8 +143,7 @@ export default function FeaturedOutletsSection() {
                             <Stars count={outlet.rating} />
 
                             <h3
-                                className="mt-2 text-[2.2rem] font-thunder leading-[1] text-[#FFF7EF] sm:text-[3.2rem] lg:text-[4.2rem]"
-                              
+                                className="mt-2 text-[2.2rem] font-thunder leading-[0.92] text-[#FFF7EF] sm:text-[3.2rem] lg:text-[4.2rem]"
                             >
                                 {outlet.name.toUpperCase()}
                             </h3>
@@ -183,8 +181,7 @@ export default function FeaturedOutletsSection() {
                             >
                                 <div className="flex items-center justify-between">
                                     <span
-                                        className={`text-[0.9rem] ${isActive ? "text-[#F2C785]" : "text-white/60"}`}
-                                        style={{ fontFamily: "'Bebas Neue', sans-serif" }}
+                                        className={`font-thunder text-[0.9rem] ${isActive ? "text-[#F2C785]" : "text-white/60"}`}
                                     >
                                         {item.number}
                                     </span>
@@ -194,9 +191,8 @@ export default function FeaturedOutletsSection() {
                                     />
                                 </div>
                                 <p
-                                    className={`text-[0.82rem] leading-tight sm:text-[0.9rem] ${isActive ? "text-[#FFF7EF]" : "text-white/75"
+                                    className={`font-mona text-[0.82rem] leading-tight sm:text-[0.9rem] ${isActive ? "text-[#FFF7EF]" : "text-white/75"
                                         }`}
-                                    style={{ fontFamily: "'Manrope', sans-serif" }}
                                 >
                                     {item.name}
                                 </p>

@@ -23,7 +23,7 @@ function Hero() {
           </span>
 
           {/* Main Heading */}
-          <h1 className="mt-2 font-thunder text-5xl  uppercase leading-[1] tracking-[-0.01em] text-deep-coffee sm:text-6xl md:text-7xl lg:text-[5.2rem] xl:text-[6.5rem]">
+          <h1 className="mt-2 font-thunder text-5xl uppercase leading-[0.92] tracking-[-0.01em] text-deep-coffee sm:text-6xl md:text-7xl lg:text-[5.2rem] xl:text-[6.5rem]">
             Brewing
             <br />
             Happiness

@@ -4,6 +4,8 @@ import Home from "./pages/Home/Home.jsx";
 import Story from "./pages/Story/Story.jsx";
 import Menu from "./pages/Menu/Menu.jsx";
 import Franchise from "./pages/Franchise/Franchise.jsx";
+import Contact from "./pages/Contact/Contact.jsx";
+import Manufacturing from "./pages/Manufacturing/Manufacturing.jsx";
 
 
 function AppRouter() {
@@ -15,6 +17,8 @@ function AppRouter() {
             <Route path="/story" element={<Story />} />
             <Route path="/menu" element={<Menu />} />
             <Route path="/franchise" element={<Franchise />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/manufacturing" element={<Manufacturing />} />
             
             {/* <Route path="/story" element={<Story />} />
             <Route path="/franchise" element={<Franchise />} />

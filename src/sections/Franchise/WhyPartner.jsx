@@ -44,7 +44,7 @@ function WhyPartner() {
       <div className="relative z-10 mx-auto flex w-full max-w-[1600px] flex-col items-center px-6 lg:px-16 xl:px-24">
         {/* Section Heading */}
         <div className="text-center">
-          <h2 className="font-thunder text-4xl uppercase leading-[1] tracking-[-0.01em] text-deep-coffee sm:text-5xl lg:text-6xl xl:text-[4rem]">
+          <h2 className="font-thunder text-4xl uppercase leading-[0.92] tracking-[-0.01em] text-deep-coffee sm:text-5xl lg:text-6xl xl:text-[4rem]">
             Why Partner With<br />Thatha Tea?
           </h2>
         </div>

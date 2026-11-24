@@ -14,7 +14,7 @@
   --color-soft-ivory: #F6EEDF;
 
   /* Fonts */
-  --font-thunder: 'Anton', sans-serif;
+  --font-thunder: 'Thunder', 'Anton', sans-serif;
   --font-allura: 'Allura', cursive;
   --font-mona: 'Mona Sans', sans-serif;
 }
@@ -37,7 +37,7 @@
 /* 5. Custom Typography Utility Classes */
 @layer components {
   .heading-primary {
-    @apply font-thunder font-bold uppercase leading-[0.9] tracking-tight;
+    @apply font-thunder uppercase leading-[0.9] tracking-tight;
   }
   
   .heading-secondary {

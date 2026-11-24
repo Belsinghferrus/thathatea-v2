@@ -54,7 +54,7 @@ function BrewSuccess() {
         {/* Right Column: Content, CTAs, and Stats */}
         <div className="flex flex-col items-center text-center lg:col-span-6 lg:items-start lg:text-left pb-12 sm:pb-14 lg:pb-16 xl:pb-20">
           {/* Main Heading */}
-          <h2 className="font-thunder text-4xl  uppercase leading-[1] tracking-[-0.01em] text-deep-coffee sm:text-5xl lg:text-6xl xl:text-[4.2rem]">
+          <h2 className="font-thunder text-4xl uppercase leading-[0.92] tracking-[-0.01em] text-deep-coffee sm:text-5xl lg:text-6xl xl:text-[4.2rem]">
             Let's Brew Success<br />Together!
           </h2>
 

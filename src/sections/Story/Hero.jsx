@@ -51,7 +51,7 @@ function StoryHero() {
             Our Story, brewed with heart
           </span>
 
-          <h1 className="mt-2 font-thunder text-4xl font-bold uppercase leading-[1] tracking-[-0.02em] text-[#2C1810] sm:text-5xl lg:text-6xl xl:text-[5rem]">
+          <h1 className="mt-2 font-thunder text-4xl uppercase leading-[0.92] tracking-[-0.02em] text-[#2C1810] sm:text-5xl lg:text-6xl xl:text-[5rem]">
             More Than Tea.<br />
             <span className="text-[#A76024]">A Legacy</span> Brewed<br />
             With Love.

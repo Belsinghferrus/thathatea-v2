@@ -6,6 +6,7 @@ export const ROUTES = {
     TECHNOLOGY: "/technology",
     FRANCHISE: "/franchise",
     CONTACT: "/contact",
+    MANUFACTURING: "/manufacturing",
   };
   
   export const NAV_LINKS = [

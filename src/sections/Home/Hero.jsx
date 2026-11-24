@@ -188,7 +188,7 @@ function Hero() {
                             </div>
 
                             {/* Main Heading */}
-                            <h1 className="hero-title-line mt-2 text-[2.5rem] uppercase leading-[0.95] ] text-deep-coffee sm:text-[4.5rem] md:text-[5.0rem] lg:text-[4.5rem] xl:text-[6.5rem] font-thunder font-bold" >
+                            <h1 className="hero-title-line mt-2 text-[2.5rem] uppercase leading-[0.92] text-deep-coffee sm:text-[4.5rem] md:text-[5.0rem] lg:text-[4.5rem] xl:text-[6.5rem] font-thunder" >
                                 <span className="block">Connects</span>
                                 <span className="block">Generations</span>
                             </h1>
