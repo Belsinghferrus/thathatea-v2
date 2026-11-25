@@ -16,7 +16,7 @@ function FranchiseTicker() {
 
   return (
     // Dark brown background, hidden overflow to clip the scrolling track
-    <div className="relative flex w-full overflow-hidden bg-[#2C1810] py-6">
+    <div className="relative flex w-full overflow-hidden bg-deep-coffee py-6">
       
       {/* The Animated Track */}
       <div className="flex w-max flex-nowrap animate-marquee items-center hover:[animation-play-state:paused]">
@@ -28,10 +28,10 @@ function FranchiseTicker() {
               className="flex shrink-0 items-center gap-3 px-8"
             >
               {/* Icon colored to match the caramel accent */}
-              <Icon className="h-4 w-4 shrink-0 text-[#A76024]" strokeWidth={2} />
+              <Icon className="h-4 w-4 shrink-0 text-caramel" strokeWidth={2} />
               
               {/* Text - whitespace-nowrap ensures it stays on a single line */}
-              <span className="whitespace-nowrap font-mona text-xs font-semibold uppercase tracking-[0.15em] text-[#F6EEDF] sm:text-sm">
+              <span className="whitespace-nowrap font-mona text-xs font-semibold uppercase tracking-[0.15em] text-soft-ivory sm:text-sm">
                 {item.text}
               </span>
             </div>

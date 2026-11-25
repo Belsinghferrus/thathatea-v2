@@ -22,10 +22,10 @@ function FeaturesBar() {
 
   return (
     // Deep coffee background, exact height of 64px
-    <div className="relative flex h-[64px] w-full items-center overflow-hidden bg-[#2C1810] text-[#F6EEDF]">
+    <div className="relative flex h-16 w-full items-center overflow-hidden bg-deep-coffee text-soft-ivory">
       
       {/* DESKTOP VIEW: Static and evenly spaced */}
-      <div className="mx-auto hidden w-full max-w-[1600px] items-center justify-evenly px-6 lg:flex">
+      <div className="mx-auto hidden w-full max-w-400 items-center justify-evenly px-6 lg:flex">
         {features.map((feature, index) => (
           <span 
             key={index} 
@@ -37,7 +37,7 @@ function FeaturesBar() {
       </div>
 
       {/* MOBILE VIEW: Elegant Fade & Slide Rotation */}
-      <div className="relative flex h-[64px] w-full items-center justify-center overflow-hidden lg:hidden">
+      <div className="relative flex h-16 w-full items-center justify-center overflow-hidden lg:hidden">
         {features.map((feature, index) => (
           <span
             key={index}

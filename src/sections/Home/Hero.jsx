@@ -15,7 +15,7 @@ const CHAI_LANGUAGES = ["தேநீர்", "ಚಹಾ", "టీ", "चाय"
 // 2. Custom Icon for "Our Story"
 function StoryIcon() {
     return (
-        <svg viewBox="0 0 24 24" className="h-[18px] w-[18px]" fill="none" aria-hidden="true">
+        <svg viewBox="0 0 24 24" className="h-4.5 w-4.5" fill="none" aria-hidden="true">
             <circle cx="12" cy="12" r="8.5" stroke="currentColor" strokeWidth="1.4" />
             <circle cx="12" cy="12" r="1.4" fill="currentColor" />
             <path
@@ -112,7 +112,7 @@ function Hero() {
     return (
         <section
             ref={rootRef}
-            className="relative isolate overflow-hidden text-deep-coffee min-h-[100svh] lg:min-h-screen"
+            className="relative isolate overflow-hidden text-deep-coffee min-h-svh lg:min-h-screen"
         >
             <div
                 aria-hidden="true"
@@ -122,7 +122,7 @@ function Hero() {
 
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_48%,rgba(167,96,36,0.08),transparent_20%),radial-gradient(circle_at_50%_100%,rgba(44,24,16,0.08),transparent_30%)] " />
 
-            <div className="relative mx-auto flex w-full max-w-[1600px] flex-col justify-center px-6 pb-12 pt-30 sm:px-10 lg:px-16 lg:pb-0 lg:pt-20 h-full min-h-[100svh]">
+            <div className="relative mx-auto flex w-full max-w-400 flex-col justify-center px-6 pb-12 pt-30 sm:px-10 lg:px-16 lg:pb-0 lg:pt-20 h-full min-h-svh">
 
                 <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[52%] lg:block xl:w-[54%]">
                     <div className="relative h-full w-full">
@@ -136,11 +136,11 @@ function Hero() {
                                 width={860}
                                 height={980}
                                 loading="eager"
-                                className="h-[85vh] max-h-[980px] w-auto max-w-none object-contain object-bottom xl:h-[92vh]"
+                                className="h-[85vh] max-h-245 w-auto max-w-none object-contain object-bottom xl:h-[92vh]"
                             />
                         </div>
 
-                        <div className="absolute bottom-[4%] right-[12%] h-[38px] w-[300px] rounded-full bg-[radial-gradient(circle,rgba(44,24,16,0.22)_0%,rgba(44,24,16,0.10)_38%,rgba(44,24,16,0.00)_80%)] blur-xl" />
+                        <div className="absolute bottom-[4%] right-[12%] h-9.5 w-75 rounded-full bg-[radial-gradient(circle,rgba(44,24,16,0.22)_0%,rgba(44,24,16,0.10)_38%,rgba(44,24,16,0.00)_80%)] blur-xl" />
                     </div>
                 </div>
 
@@ -149,21 +149,21 @@ function Hero() {
                     {/* Mobile Image (Shows on top) */}
                     <div className="order-1 relative z-10 flex items-center justify-center lg:hidden mt-10">
                         <div className="hero-mascot hero-mascot-float relative">
-                            <div className="hero-spotlight absolute left-1/2 top-1/2 h-[280px] w-[280px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(237,184,115,0.18)_0%,rgba(237,184,115,0.06)_42%,rgba(237,184,115,0)_74%)] blur-2xl" />
+                            <div className="hero-spotlight absolute left-1/2 top-1/2 h-70 w-70 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(237,184,115,0.18)_0%,rgba(237,184,115,0.06)_42%,rgba(237,184,115,0)_74%)] blur-2xl" />
                             <img
                                 src={mascot}
                                 alt="Thatha Tea mascot pouring chai"
                                 width={860}
                                 height={980}
                                 loading="eager"
-                                className="relative z-10 h-auto w-full max-w-[380px] object-contain sm:max-w-[460px]"
+                                className="relative z-10 h-auto w-full max-w-95 object-contain sm:max-w-115"
                             />
                         </div>
                     </div>
 
                     {/* Text Content */}
                     <div className="order-2 relative z-20 w-full pb-4 text-center lg:order-1 lg:text-left lg:pb-0">
-                        <div className="mx-auto w-full max-w-[580px] lg:ml-0 lg:mr-0 lg:max-w-[550px] xl:ml-[20%]">
+                        <div className="mx-auto w-full max-w-145 lg:ml-0 lg:mr-0 lg:max-w-137.5 xl:ml-[20%]">
 
                             {/* Animated "Chai" Script Heading */}
                             <div className="hero-kicker flex items-center justify-center lg:justify-start gap-2 text-[2.8rem] leading-[0.9] text-caramel sm:text-[3.2rem] lg:text-[3.8rem] xl:text-[4.2rem] font-allura">
@@ -171,7 +171,7 @@ function Hero() {
                                 {/* Animated Word Container */}
                                 <span
                                     ref={textRef}
-                                    className="inline-flex justify-center lg:justify-start whitespace-nowrap min-w-[130px]"
+                                    className="inline-flex justify-center lg:justify-start whitespace-nowrap min-w-32.5"
                                     style={{ perspective: "1000px" }}
                                 >
                                     {getGraphemes(CHAI_LANGUAGES[langIndex]).map((char, index) => (
@@ -194,7 +194,7 @@ function Hero() {
                             </h1>
 
                             {/* Body Text */}
-                            <p className="hero-copy mx-auto mt-6 max-w-[32rem] text-[1.05rem] leading-[1.6] text-deep-coffee/80 sm:text-[1.1rem] lg:mx-0 lg:mt-4 lg:max-w-[28rem] lg:text-[1.15rem] font-mona ">
+                            <p className="hero-copy mx-auto mt-6 max-w-lg text-[1.05rem] leading-[1.6] text-deep-coffee/80 sm:text-[1.1rem] lg:mx-0 lg:mt-4 lg:max-w-md lg:text-[1.15rem] font-mona ">
                                 From our family recipe to your cup, <span className="font-semibold text-caramel">Thatha Tea</span> serves warmth, tradition &amp; time.
                             </p>
 
@@ -202,15 +202,15 @@ function Hero() {
                             <div className="hero-actions mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center lg:mt-4 lg:justify-start">
                                 <button
                                     onClick={() => navigate(ROUTES.MENU)}
-                                    className="inline-flex min-h-[56px] min-w-[200px] items-center justify-center gap-2.5 rounded-2xl bg-caramel px-8 text-[0.9rem] font-mona font-semibold uppercase tracking-widest text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:bg-deep-coffee"
+                                    className="inline-flex min-h-14 min-w-50 items-center justify-center gap-2.5 rounded-2xl bg-caramel px-8 text-[0.9rem] font-mona font-semibold uppercase tracking-widest text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:bg-deep-coffee"
                                 >
-                                    <Coffee className="h-[18px] w-[18px]" />
+                                    <Coffee className="h-4.5 w-4.5" />
                                     Explore Menu
                                 </button>
 
                                 <button
                                     onClick={() => navigate(ROUTES.STORY || "/story")}
-                                    className="inline-flex min-h-[56px] min-w-[200px] items-center justify-center gap-2.5 rounded-2xl border border-deep-coffee/20 bg-soft-ivory px-8 text-[0.9rem] font-mona font-semibold uppercase tracking-widest text-deep-coffee transition-all duration-300 hover:-translate-y-1 hover:border-deep-coffee hover:bg-deep-coffee hover:text-warm-cream"
+                                    className="inline-flex min-h-14 min-w-50 items-center justify-center gap-2.5 rounded-2xl border border-deep-coffee/20 bg-soft-ivory px-8 text-[0.9rem] font-mona font-semibold uppercase tracking-widest text-deep-coffee transition-all duration-300 hover:-translate-y-1 hover:border-deep-coffee hover:bg-deep-coffee hover:text-warm-cream"
                                 >
                                     <StoryIcon />
                                     Our Story
@@ -218,7 +218,7 @@ function Hero() {
                             </div>
 
                             {/* Stats Area */}
-                            <div className="hero-stats mt-12 grid grid-cols-3 gap-4 sm:gap-6 lg:mt-8 lg:max-w-[500px]">
+                            <div className="hero-stats mt-12 grid grid-cols-3 gap-4 sm:gap-6 lg:mt-8 lg:max-w-125">
                                 {stats.map((stat, index) => (
                                     <div
                                         key={stat.value}

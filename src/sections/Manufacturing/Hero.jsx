@@ -1,58 +1,69 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import heroBg from "../../assets/images/contact/adfc5988-159f-4f06-96db-da0d1a69142c 1.png";
-import heroBakeryImg from "../../assets/images/manufacturing/image 2337.png";
+import { ROUTES } from "../../constant/routes";
+import heroKitchenBg from "../../assets/images/manufacturing/image 2337.png";
+import heroMascot from "../../assets/images/manufacturing/5975285c-4861-4f0f-aafb-905195a4b24d 1.png";
+import wheatWatermark from "../../assets/images/manufacturing/1106b8f3-96cb-4a3c-bcff-45f986a95880 3.png";
 
 function Hero() {
   return (
-    <section className="relative flex min-h-[92svh] w-full flex-col justify-end overflow-hidden bg-[#F8EBD7] pt-28 pb-0 lg:min-h-screen lg:pt-0">
-      {/* Background Illustrated Image with Subtle Opacity */}
-      <div className="pointer-events-none absolute inset-0 z-0">
+    <section className="relative flex min-h-svh w-full items-center overflow-hidden bg-[#F8EBD7] pt-28 pb-16 lg:pt-24 lg:pb-0">
+      {/* Full-Width Manufacturing Kitchen Background */}
+      <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
         <img
-          src={heroBg}
-          alt=""
-          className="h-full w-full object-cover object-left-bottom opacity-25 mix-blend-multiply"
+          src={heroKitchenBg}
+          alt="Thatha Tea state-of-the-art central kitchen and bakery facility"
+          className="h-full w-full scale-[1.15] object-cover object-[70%_58%]"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#F8EBD7]/80 via-[#F8EBD7]/40 to-transparent" />
+        {/* Smooth Solid-to-Transparent Cream Gradient on Left */}
+        <div className="absolute inset-0 bg-linear-to-r from-[#F8EBD7] from-26% via-[#F8EBD7]/90 via-40% to-transparent to-68%" />
       </div>
 
-      {/* Main Content Area */}
-      <div className="relative z-10 mx-auto flex w-full max-w-[1440px] items-end px-6 pb-16 sm:px-12 sm:pb-24 lg:px-16 lg:pb-20 xl:px-20 xl:pb-24">
-        <div className="flex w-full flex-col items-center text-center lg:w-[48%] lg:items-start lg:text-left">
+      {/* Subtle Wheat Stalks Watermark Top-Left */}
+      <div className="pointer-events-none absolute top-16 left-0 z-0 w-48 opacity-20 mix-blend-multiply sm:w-60 lg:w-72">
+        <img src={wheatWatermark} alt="" className="h-auto w-full object-contain" />
+      </div>
+
+      {/* Main Content Container - Shared Left/Right Alignment Across Entire Page */}
+      <div className="relative z-20 mx-auto flex h-full w-full max-w-400 items-center px-6 lg:px-16">
+        <div className="flex w-full flex-col items-start text-left lg:w-[48%]">
           {/* Decorative Script Kicker */}
-          <span className="font-allura text-4xl text-[#A76024] sm:text-5xl lg:text-6xl xl:text-[4.2rem]">
+          <span className="font-allura text-4xl text-caramel sm:text-5xl lg:text-[3.1rem] xl:text-[3.5rem]">
             Our Manufacturing
           </span>
 
-          {/* Main Heading - font-thunder, leading-[0.92], no font-bold */}
-          <h1 className="mt-2 font-thunder text-5xl uppercase leading-[0.92] tracking-[-0.01em] text-[#2C1810] sm:text-6xl md:text-7xl lg:text-[5.2rem] xl:text-[6.5rem]">
-            FROM INGREDIENTS
-            <br />
-            <span className="text-[#A76024]">TO EVERY OUTLET</span>
+          {/* Main Heading - Strictly 2 Lines, font-thunder, leading-[0.92], no font-bold */}
+          <h1 className="mt-1 font-thunder text-[2.75rem] uppercase leading-[0.92] tracking-[-0.01em] text-deep-coffee sm:text-6xl lg:text-[4.35rem] xl:text-[5.15rem]">
+            <span className="block sm:whitespace-nowrap">FROM INGREDIENTS</span>
+            <span className="block text-caramel sm:whitespace-nowrap">
+              TO EVERY OUTLET
+            </span>
           </h1>
 
           {/* Supporting Copy */}
-          <p className="mt-5 max-w-[460px] font-mona text-sm leading-relaxed text-[#2C1810]/80 sm:text-base lg:text-lg">
-            Our state-of-the-art central kitchen and bakery facility brings together traditional recipes, modern technology and strict quality standards to deliver the same great taste, every time.
+          <p className="mt-5 max-w-100 font-mona text-xs leading-relaxed text-deep-coffee/85 sm:text-sm">
+            Our state-of-the-art central kitchen and bakery facility brings
+            together traditional recipes, modern technology and strict quality
+            standards to deliver the same great taste, every time.
           </p>
 
-          {/* CTA: Explore Our Menu */}
+          {/* CTA: Explore Menu */}
           <Link
-            to="/menu"
-            className="group mt-7 inline-flex items-center justify-center gap-2 rounded-xl bg-[#A76024] px-7 py-3.5 font-mona text-xs font-bold uppercase tracking-wider text-white shadow-md transition-all duration-300 hover:bg-[#8D4A15] hover:shadow-lg active:scale-95 cursor-pointer lg:mt-9"
+            to={ROUTES.MENU}
+            className="group mt-7 inline-flex items-center justify-center gap-2 rounded-lg bg-caramel px-6 py-3 font-mona text-xs font-semibold uppercase tracking-wider text-white shadow-sm transition-all duration-300 hover:bg-[#8D4A15] active:scale-95"
           >
-            <span>EXPLORE OUR MENU</span>
-            <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+            <span>EXPLORE MENU</span>
+            <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
         </div>
       </div>
 
-      {/* Right Side: Commercial Bakery Facility & Mascot Illustration Anchored to Bottom Right */}
-      <div className="pointer-events-none relative z-10 flex w-full justify-center px-4 sm:px-6 lg:absolute lg:bottom-0 lg:right-0 lg:h-[76vh] xl:h-[82vh] 2xl:h-[86vh] lg:w-[54%] xl:w-[52%] 2xl:w-[50%] lg:justify-end lg:px-0">
+      {/* Thatha Mascot Anchored Bottom-Right Without Overlapping Left Text */}
+      <div className="pointer-events-none relative z-10 mt-6 flex w-full justify-center lg:absolute lg:bottom-0 lg:left-[44%] lg:mt-0 lg:h-[70%] lg:w-auto lg:justify-start xl:left-[43%] xl:h-[73%]">
         <img
-          src={heroBakeryImg}
-          alt="Thatha Tea manufacturing and bakery facility"
-          className="h-auto w-full max-w-[540px] object-contain object-bottom sm:max-w-[680px] lg:h-full lg:w-auto lg:max-w-full lg:object-bottom-right drop-shadow-2xl"
+          src={heroMascot}
+          alt="Thatha Tea mascot welcoming to our central kitchen"
+          className="h-72 w-auto object-contain object-bottom sm:h-88 lg:h-full"
         />
       </div>
     </section>

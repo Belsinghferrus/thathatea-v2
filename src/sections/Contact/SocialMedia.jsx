@@ -75,8 +75,8 @@ const socialChannels = [
     handle: "@thathatea",
     url: "https://x.com/thathatea",
     icon: XIcon,
-    iconColor: "text-[#000000]",
-    bgColor: "bg-[#000000]/10",
+    iconColor: "text-black",
+    bgColor: "bg-black/10",
   },
   {
     name: "LinkedIn",
@@ -96,9 +96,9 @@ function SocialMedia() {
         <img
           src={socialBg}
           alt=""
-          className="h-full w-full object-cover object-right-bottom opacity-85"
+          className="h-full w-full object-cover object-bottom-right opacity-85"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#F6DFC0]/95 via-[#F6DFC0]/60 to-transparent lg:from-[#F6DFC0]/90 lg:via-[#F6DFC0]/40" />
+        <div className="absolute inset-0 bg-linear-to-r from-[#F6DFC0]/95 via-[#F6DFC0]/60 to-transparent lg:from-[#F6DFC0]/90 lg:via-[#F6DFC0]/40" />
       </div>
 
       {/* Decorative Curved Peach Shape on Upper-Left */}
@@ -111,24 +111,24 @@ function SocialMedia() {
         <img src={greenLeavesBranch} alt="" className="w-full object-contain rotate-120" />
       </div>
 
-      <div className="relative z-10 mx-auto w-full max-w-[1440px] px-6 sm:px-10 lg:px-16 xl:px-20">
+      <div className="relative z-10 mx-auto w-full max-w-400 px-6 lg:px-16">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-8">
           {/* Left Column: Heading, Description, and Social Media Cards */}
           <div className="flex flex-col items-center text-center lg:col-span-7 lg:items-start lg:text-left">
-            <h2 className="font-thunder text-4xl uppercase leading-[0.92] tracking-[-0.01em] text-[#2C1810] sm:text-5xl lg:text-[3.6rem] xl:text-[4.2rem]">
+            <h2 className="font-thunder text-4xl uppercase leading-[0.92] tracking-[-0.01em] text-deep-coffee sm:text-5xl lg:text-[3.6rem] xl:text-[4.2rem]">
               GOOD TEA,
               <br />
               GREAT CONVERSATIONS,
               <br />
-              <span className="text-[#A76024]">ALWAYS</span>
+              <span className="text-caramel">ALWAYS</span>
             </h2>
 
-            <p className="mt-4 max-w-[480px] font-mona text-sm leading-relaxed text-[#2C1810]/80 sm:text-base">
+            <p className="mt-4 max-w-120 font-mona text-sm leading-relaxed text-deep-coffee/80 sm:text-base">
               Follow us for new brews, behind-the-counter stories, offers, and a little bit of everyday warmth in your feed.
             </p>
 
             {/* Social Media Cards in 2-Column Desktop Grid */}
-            <div className="mt-9 grid w-full max-w-[620px] grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-4">
+            <div className="mt-9 grid w-full max-w-155 grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-4">
               {socialChannels.map((item, index) => {
                 const IconComponent = item.icon;
                 return (
@@ -144,16 +144,16 @@ function SocialMedia() {
                         <IconComponent className={`h-5 w-5 ${item.iconColor}`} />
                       </div>
                       <div className="flex flex-col text-left">
-                        <span className="font-mona text-xs font-bold text-[#2C1810]">
+                        <span className="font-mona text-xs font-bold text-deep-coffee">
                           {item.name}
                         </span>
-                        <span className="font-mona text-[11px] text-[#2C1810]/60">
+                        <span className="font-mona text-[11px] text-deep-coffee/60">
                           {item.handle}
                         </span>
                       </div>
                     </div>
 
-                    <span className="inline-flex items-center gap-1 rounded-full bg-[#F6EEDF] px-3 py-1 font-mona text-[10px] font-bold uppercase tracking-wider text-[#2C1810] transition-colors group-hover:bg-[#A76024] group-hover:text-white">
+                    <span className="inline-flex items-center gap-1 rounded-full bg-soft-ivory px-3 py-1 font-mona text-[10px] font-bold uppercase tracking-wider text-deep-coffee transition-colors group-hover:bg-caramel group-hover:text-white">
                       <span>FOLLOW</span>
                       <ArrowRight className="h-3 w-3" />
                     </span>

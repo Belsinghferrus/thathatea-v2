@@ -1,4 +1,6 @@
-import { Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
+import { ROUTES } from "./constant/routes.js";
 
 import Home from "./pages/Home/Home.jsx";
 import Story from "./pages/Story/Story.jsx";
@@ -6,31 +8,35 @@ import Menu from "./pages/Menu/Menu.jsx";
 import Franchise from "./pages/Franchise/Franchise.jsx";
 import Contact from "./pages/Contact/Contact.jsx";
 import Manufacturing from "./pages/Manufacturing/Manufacturing.jsx";
+import Career from "./pages/Career/Career.jsx";
+import Technology from "./pages/Technology/Technology.jsx";
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 function AppRouter() {
-    return (
-
-        <>
-         <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/story" element={<Story />} />
-            <Route path="/menu" element={<Menu />} />
-            <Route path="/franchise" element={<Franchise />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/manufacturing" element={<Manufacturing />} />
-            
-            {/* <Route path="/story" element={<Story />} />
-            <Route path="/franchise" element={<Franchise />} />
-            <Route path="/career" element={<Career />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/privacy-policy" element={<Privacy />} />
-            <Route path="/Refund-policy" element={<Refund />} />
-            <Route path="/terms-and-conditions" element={<Terms />} /> */}
-        </Routes>
-        </>
-       
-    );
+  return (
+    <>
+      <ScrollToTop />
+      <Routes>
+        <Route path={ROUTES.HOME} element={<Home />} />
+        <Route path={ROUTES.STORY} element={<Story />} />
+        <Route path={ROUTES.MENU} element={<Menu />} />
+        <Route path={ROUTES.FRANCHISE} element={<Franchise />} />
+        <Route path={ROUTES.CONTACT} element={<Contact />} />
+        <Route path={ROUTES.MANUFACTURING} element={<Manufacturing />} />
+        <Route path={ROUTES.CAREER} element={<Career />} />
+        <Route path={ROUTES.TECHNOLOGY} element={<Technology />} />
+      </Routes>
+    </>
+  );
 }
 
 export default AppRouter;

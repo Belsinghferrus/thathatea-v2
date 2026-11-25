@@ -31,10 +31,10 @@ function BrewSuccess() {
         />
       </div>
 
-      <div className="relative z-10 mx-auto grid w-full max-w-[1600px] grid-cols-1 items-end px-6 sm:px-12 lg:grid-cols-12 lg:gap-8 lg:px-16 xl:px-24">
+      <div className="relative z-10 mx-auto grid w-full max-w-400 grid-cols-1 items-end px-6 lg:grid-cols-12 lg:gap-8 lg:px-16">
         {/* Left Column: Mascot with Vector Shape Backdrop */}
         <div className="relative flex w-full items-end justify-center lg:col-span-6 lg:justify-start">
-          <div className="relative w-full max-w-[360px] sm:max-w-[440px] lg:max-w-[520px] xl:max-w-[560px]">
+          <div className="relative w-full max-w-90 sm:max-w-110 lg:max-w-130 xl:max-w-140">
             {/* The Exact Vector Shape from Figma */}
             <img
               src={mascotShape}
@@ -59,7 +59,7 @@ function BrewSuccess() {
           </h2>
 
           {/* Subtext */}
-          <p className="mt-4 max-w-[480px] font-mona text-sm leading-relaxed text-deep-coffee/80 sm:text-base">
+          <p className="mt-4 max-w-120 font-mona text-sm leading-relaxed text-deep-coffee/80 sm:text-base">
             Join the Thatha Tea family and be your own boss today.
           </p>
 
@@ -67,7 +67,7 @@ function BrewSuccess() {
           <div className="mt-7 flex flex-col items-center gap-6 sm:flex-row sm:gap-8">
             <button
               onClick={handleEnquire}
-              className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-[#A75D20] px-7 py-3 font-mona text-xs font-semibold uppercase tracking-wider text-white shadow-md transition-all duration-300 hover:bg-deep-coffee"
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-[#A75D20] px-7 py-3 font-mona text-xs font-semibold uppercase tracking-wider text-white shadow-md transition-all duration-300 hover:bg-deep-coffee"
             >
               <span>Enquire Now</span>
               <ArrowRight className="h-4 w-4" />
@@ -92,7 +92,7 @@ function BrewSuccess() {
           </div>
 
           {/* Business Statistics Grid */}
-          <div className="mt-10 grid w-full max-w-[580px] grid-cols-2 gap-y-5 sm:grid-cols-4 sm:gap-y-0 pt-6 border-t border-deep-coffee/15">
+          <div className="mt-10 grid w-full max-w-145 grid-cols-2 gap-y-5 sm:grid-cols-4 sm:gap-y-0 pt-6 border-t border-deep-coffee/15">
             {stats.map((stat, index) => (
               <div
                 key={index}

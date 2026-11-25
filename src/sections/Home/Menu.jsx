@@ -81,7 +81,7 @@ function Menu() {
             {/* =========================================
           MAIN CONTENT CONTAINER
       ========================================= */}
-            <div className="relative z-10 mx-auto flex w-full max-w-[1300px] flex-col px-6 lg:px-16">
+            <div className="relative z-10 mx-auto flex w-full max-w-325 flex-col px-6 lg:px-16">
 
                 {/* TOP SECTION: Text & Mascot */}
                 <div className="relative grid w-full grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-8">
@@ -97,12 +97,12 @@ function Menu() {
                         />
 
                         {/* Main Heading */}
-                        <h2 className="mt-2 font-thunder text-3xl font-bold uppercase leading-[1] tracking-[-0.02em] text-deep-coffee sm:text-5xl lg:text-4xl xl:text-[4rem]">
+                        <h2 className="mt-2 font-thunder text-3xl font-bold uppercase leading-none tracking-[-0.02em] text-deep-coffee sm:text-5xl lg:text-4xl xl:text-[4rem]">
                             Simple Flavours.<br />Everyday Favourites.
                         </h2>
 
                         {/* Subtext */}
-                        <p className="mt-6 max-w-[420px] font-mona text-sm leading-relaxed text-deep-coffee/80 sm:text-base lg:text-lg">
+                        <p className="mt-6 max-w-105 font-mona text-sm leading-relaxed text-deep-coffee/80 sm:text-base lg:text-lg">
                             From classic chai to freshly baked delights, our menu is crafted for every mood, craving and moment.
                         </p>
 
@@ -128,7 +128,7 @@ function Menu() {
                         <img
                             src={mascotDough}
                             alt="Thatha tossing dough"
-                            className="w-full max-w-[350px] object-contain object-bottom sm:max-w-[450px] lg:max-w-[500px] xl:max-w-[600px]"
+                            className="w-full max-w-87.5 object-contain object-bottom sm:max-w-112.5 lg:max-w-125 xl:max-w-150"
                         />
                     </div>
                 </div>
@@ -138,7 +138,7 @@ function Menu() {
                     {menuItems.map((item, index) => (
                         <div
                             key={index}
-                            className="group flex flex-col overflow-hidden rounded-[1rem] bg-white p-3 shadow-xl shadow-black/5 transition-transform duration-300 hover:-translate-y-2"
+                            className="group flex flex-col overflow-hidden rounded-2xl bg-white p-3 shadow-xl shadow-black/5 transition-transform duration-300 hover:-translate-y-2"
                         >
                             {/* Product Image */}
                             <div className="h-44 w-full overflow-hidden rounded-xl sm:h-48">
@@ -154,7 +154,7 @@ function Menu() {
 
                                 {/* Icon */}
                                 <item.icon
-                                    className="mt-1 h-6 w-6 shrink-0 text-[#A76024]"
+                                    className="mt-1 h-6 w-6 shrink-0 text-caramel"
                                     strokeWidth={1.5}
                                 />
 

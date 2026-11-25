@@ -8,6 +8,7 @@ import FranchiseEnquiry from "../../sections/Franchise/FranchiseEnquiry";
 import FAQ from "../../sections/Franchise/FAQ";
 import FeaturedOutletsSection from "../../sections/Franchise/Outlets";
 import FranchiseTicker from "../../sections/Franchise/FranchiseTicker";
+import FranchisePopup from "../../sections/Franchise/FranchisePopup";
 
 const Franchise = () => {
   return (
@@ -22,6 +23,7 @@ const Franchise = () => {
         <FranchiseEnquiry />
         <FAQ />
       </main>
+      <FranchisePopup />
       <Footer />
     </>
   );

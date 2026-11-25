@@ -16,7 +16,7 @@ function Ticker() {
 
   return (
     // Exact 20px height, deep coffee background, soft ivory text
-    <div className="relative flex h-[50px] w-full overflow-hidden bg-deep-coffee text-soft-ivory">
+    <div className="relative flex h-12.5 w-full overflow-hidden bg-deep-coffee text-soft-ivory">
       
       {/* Animated Track */}
       <div className="flex w-max animate-marquee items-center hover:[animation-play-state:paused]">
@@ -25,9 +25,9 @@ function Ticker() {
             
             {/* Icons scaled down to fit perfectly within the 20px height */}
             {item.icon === "cup" ? (
-              <Coffee className="h-[10px] w-[10px] opacity-80" />
+              <Coffee className="h-2.5 w-2.5 opacity-80" />
             ) : (
-              <Leaf className="h-[10px] w-[10px] opacity-80" />
+              <Leaf className="h-2.5 w-2.5 opacity-80" />
             )}
             
             {/* Text */}

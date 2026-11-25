@@ -13,14 +13,14 @@ function Ticker() {
   const duplicatedItems = [...tickerItems, ...tickerItems];
 
   return (
-    <div className="relative flex w-full overflow-hidden bg-[#2C1810] py-5 sm:py-6">
+    <div className="relative flex w-full overflow-hidden bg-deep-coffee py-5 sm:py-6">
       <div className="flex w-max flex-nowrap animate-marquee items-center hover:[animation-play-state:paused]">
         {duplicatedItems.map((item, index) => {
           const Icon = item.icon;
           return (
             <div key={index} className="flex shrink-0 items-center gap-3 px-6 sm:px-8">
-              <Icon className="h-4 w-4 shrink-0 text-[#A76024]" strokeWidth={2} />
-              <span className="whitespace-nowrap font-mona text-xs font-semibold uppercase tracking-[0.15em] text-[#F6EEDF] sm:text-sm">
+              <Icon className="h-4 w-4 shrink-0 text-caramel" strokeWidth={2} />
+              <span className="whitespace-nowrap font-mona text-xs font-semibold uppercase tracking-[0.15em] text-soft-ivory sm:text-sm">
                 {item.text}
               </span>
             </div>

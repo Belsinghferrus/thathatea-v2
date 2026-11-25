@@ -18,7 +18,7 @@ function Technology() {
                     <img
                         src={mascotTablet}
                         alt="Thatha using a tablet"
-                        className="relative z-10 w-full lg:ml-40 max-w-[280px] object-contain object-bottom sm:max-w-[350px] lg:max-w-[450px]"
+                        className="relative z-10 w-full lg:ml-40 max-w-70 object-contain object-bottom sm:max-w-87.5 lg:max-w-112.5"
                     />
                 </div>
 
@@ -30,11 +30,11 @@ function Technology() {
                         Technology & Data
                     </span>
 
-                    <h2 className="mt-2 font-thunder text-4xl font-bold uppercase leading-[1] tracking-[-0.02em] text-deep-coffee sm:text-5xl lg:text-6xl xl:text-[4.5rem]">
+                    <h2 className="mt-2 font-thunder text-4xl font-bold uppercase leading-none tracking-[-0.02em] text-deep-coffee sm:text-5xl lg:text-6xl xl:text-[4.5rem]">
                         The Engine Behind<br />Our Growth.
                     </h2>
 
-                    <p className="mt-6 max-w-[540px] font-mona text-sm leading-relaxed text-deep-coffee/80 sm:text-base lg:text-lg">
+                    <p className="mt-6 max-w-135 font-mona text-sm leading-relaxed text-deep-coffee/80 sm:text-base lg:text-lg">
                         A strong brand grows with great taste and smarter operations. Our
                         in-house technology and data-driven systems bring efficiency,
                         consistency and scalable growth across every outlet.
@@ -53,7 +53,7 @@ function Technology() {
                     <img
                         src={dashboardImg}
                         alt="Thatha Tea Admin Dashboard"
-                        className="w-full max-w-[350px] object-contain drop-shadow-2xl lg:max-w-[600px]"
+                        className="w-full max-w-87.5 object-contain drop-shadow-2xl lg:max-w-150"
                     />
                 </div>
             </div>

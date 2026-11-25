@@ -9,13 +9,13 @@ function Hero() {
         <img
           src={heroBg}
           alt=""
-          className="h-full w-full object-cover object-left-bottom opacity-20"
+          className="h-full w-full object-cover object-bottom-left opacity-20"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#F5EAD8]/60 via-transparent to-transparent lg:from-[#F5EAD8]/30" />
+        <div className="absolute inset-0 bg-linear-to-r from-[#F5EAD8]/60 via-transparent to-transparent lg:from-[#F5EAD8]/30" />
       </div>
 
       {/* Main Content: Left Text Column */}
-      <div className="relative z-10 mx-auto flex w-full max-w-[1400px] items-end px-6 pb-20 sm:px-12 sm:pb-34 lg:px-16 lg:pb-24 xl:px-24 xl:pb-58">
+      <div className="relative z-10 mx-auto flex w-full max-w-400 items-end px-6 pb-20 sm:pb-34 lg:px-16 lg:pb-24 xl:pb-58">
         <div className="flex w-full flex-col items-center text-center lg:w-[38%] lg:items-start lg:text-left">
           {/* Script Kicker */}
           <span className="font-allura text-4xl text-caramel sm:text-5xl lg:text-6xl xl:text-[4.2rem]">
@@ -32,7 +32,7 @@ function Hero() {
           </h1>
 
           {/* Subtext matching reference design */}
-          <p className="mt-5 max-w-[380px] font-mona text-sm leading-relaxed text-deep-coffee/80 sm:text-base lg:text-lg">
+          <p className="mt-5 max-w-95 font-mona text-sm leading-relaxed text-deep-coffee/80 sm:text-base lg:text-lg">
             Familiar flavours, thoughtful spaces, and a reason to come back.
           </p>
         </div>
@@ -43,7 +43,7 @@ function Hero() {
         <img
           src={storefrontImg}
           alt="Thatha Tea flagship cafe storefront"
-          className="w-full max-w-[500px] object-contain object-bottom sm:max-w-[650px] lg:max-w-none lg:w-auto lg:h-full lg:object-left-bottom drop-shadow-2xl"
+          className="w-full max-w-125 object-contain object-bottom sm:max-w-162.5 lg:max-w-none lg:w-auto lg:h-full lg:object-bottom-left drop-shadow-2xl"
         />
       </div>
     </section>

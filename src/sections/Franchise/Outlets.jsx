@@ -76,7 +76,7 @@ export default function FeaturedOutletsSection() {
     const outlet = outlets[active];
 
     return (
-        <section className="relative h-screen min-h-[560px] w-full overflow-hidden bg-[#1E120A]">
+        <section className="relative h-screen min-h-140 w-full overflow-hidden bg-[#1E120A]">
             {/* Background image (crossfades) */}
             <AnimatePresence mode="wait">
                 <motion.img
@@ -157,7 +157,7 @@ export default function FeaturedOutletsSection() {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 whileHover={{ x: 4 }}
-                                className="mt-5 inline-flex items-center gap-2 rounded-full bg-[#F2C785] px-5 py-2.5 text-[0.78rem] font-semibold uppercase tracking-[0.1em] text-[#2D1A10] shadow-[0_10px_24px_rgba(0,0,0,0.25)] transition-colors hover:bg-[#f0bc6e] sm:mt-6 sm:px-6 sm:py-3"
+                                className="mt-5 inline-flex items-center gap-2 rounded-full bg-[#F2C785] px-5 py-2.5 text-[0.78rem] font-semibold uppercase tracking-widest text-[#2D1A10] shadow-[0_10px_24px_rgba(0,0,0,0.25)] transition-colors hover:bg-[#f0bc6e] sm:mt-6 sm:px-6 sm:py-3"
                             >
                                 View Outlet
                                 <ArrowUpRight className="h-4 w-4" />
@@ -174,7 +174,7 @@ export default function FeaturedOutletsSection() {
                             <button
                                 key={item.number}
                                 onClick={() => setActive(index)}
-                                className={`group relative flex min-w-[150px] flex-1 flex-col gap-2 overflow-hidden rounded-[16px] border p-3 text-left transition-all duration-300 sm:min-w-[180px] sm:p-4 ${isActive
+                                className={`group relative flex min-w-37.5 flex-1 flex-col gap-2 overflow-hidden rounded-2xl border p-3 text-left transition-all duration-300 sm:min-w-45 sm:p-4 ${isActive
                                         ? "border-[#F2C785] bg-[#F2C785]/10"
                                         : "border-white/15 bg-white/5 hover:border-white/30 hover:bg-white/10"
                                     }`}
@@ -198,7 +198,7 @@ export default function FeaturedOutletsSection() {
                                 </p>
 
                                 {/* Active progress bar */}
-                                <span className="relative mt-1 h-[2px] w-full overflow-hidden rounded-full bg-white/10">
+                                <span className="relative mt-1 h-0.5 w-full overflow-hidden rounded-full bg-white/10">
                                     {isActive && (
                                         <motion.span
                                             key={active}

@@ -52,12 +52,12 @@ function FAQ() {
         <img
           src={faqBg}
           alt=""
-          className="h-full w-full object-cover object-left-bottom opacity-85"
+          className="h-full w-full object-cover object-bottom-left opacity-85"
         />
         <div className="absolute inset-0 bg-[#F6EDDF]/40" />
       </div>
 
-      <div className="relative z-10 mx-auto grid w-full max-w-[1600px] grid-cols-1 items-start gap-12 px-6 sm:px-12 lg:grid-cols-12 lg:gap-12 lg:px-16 xl:px-24">
+      <div className="relative z-10 mx-auto grid w-full max-w-400 grid-cols-1 items-start gap-12 px-6 lg:grid-cols-12 lg:gap-12 lg:px-16">
         {/* Left Column: Heading and Intro */}
         <div className="flex flex-col items-center text-center lg:col-span-5 lg:items-start lg:text-left lg:pt-4">
           <h2 className="font-thunder text-4xl uppercase leading-[0.92] tracking-[-0.01em] text-deep-coffee sm:text-5xl lg:text-6xl xl:text-[4.2rem]">
@@ -66,7 +66,7 @@ function FAQ() {
             Clear Answers.
           </h2>
 
-          <p className="mt-5 max-w-[380px] font-mona text-sm leading-relaxed text-deep-coffee/80 sm:text-base lg:text-lg">
+          <p className="mt-5 max-w-95 font-mona text-sm leading-relaxed text-deep-coffee/80 sm:text-base lg:text-lg">
             Everything you need to know before taking the first step towards a
             Thatha Tea franchise.
           </p>
@@ -91,7 +91,7 @@ function FAQ() {
                     {faq.id}. {faq.question}
                   </span>
                   <div
-                    className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#F6EEDF] text-deep-coffee transition-transform duration-300 ${
+                    className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-soft-ivory text-deep-coffee transition-transform duration-300 ${
                       isOpen ? "rotate-180 bg-caramel text-white" : ""
                     }`}
                   >

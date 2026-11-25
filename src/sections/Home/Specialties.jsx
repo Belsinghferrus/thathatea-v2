@@ -44,21 +44,21 @@ const specialties = [
       <div className="relative z-30 mx-auto -mt-24 w-full max-w-[1263px] px-4 lg:-mt-40 lg:px-0">
         
         {/* Main Floating Container */}
-        <div className="relative flex flex-col overflow-hidden rounded-[23px] border-t border-b border-[#A76024]/30 bg-[linear-gradient(0deg,#F5DFC3_-4.41%,#F6EEDF_100%)] px-6 py-10 shadow-2xl shadow-black/5 lg:block lg:h-[361px] lg:px-0 lg:py-0">
+        <div className="relative flex flex-col overflow-hidden rounded-[23px] border-t border-b border-caramel/30 bg-[linear-gradient(0deg,#F5DFC3_-4.41%,#F6EEDF_100%)] px-6 py-10 shadow-2xl shadow-black/5 lg:block lg:h-[361px] lg:px-0 lg:py-0">
           
           {/* LEFT SIDE: Text Content */}
-          <div className="relative z-10 flex w-full flex-col items-center text-center lg:absolute lg:left-[30px] lg:top-[75px] lg:h-[132px] lg:w-[259px] lg:items-start lg:text-left">
+          <div className="relative z-10 flex w-full flex-col items-center text-center lg:absolute lg:left-7.5 lg:top-[75px] lg:h-33 lg:w-[259px] lg:items-start lg:text-left">
             
             <div className="flex items-center gap-2 text-caramel">
               <Coffee className="h-5 w-5" />
               <span className="font-allura text-3xl sm:text-4xl lg:text-[2rem]">Our Specialties</span>
             </div>
   
-            <h2 className="mt-2 font-thunder text-4xl font-bold uppercase leading-[1] tracking-[-0.02em] text-deep-coffee sm:text-5xl lg:text-[3.2rem]">
+            <h2 className="mt-2 font-thunder text-4xl font-bold uppercase leading-none tracking-[-0.02em] text-deep-coffee sm:text-5xl lg:text-[3.2rem]">
               More Than<br />Just Tea
             </h2>
   
-            <p className="mt-3 max-w-[300px] font-mona text-sm leading-[1.4] text-deep-coffee/80">
+            <p className="mt-3 max-w-75 font-mona text-sm leading-[1.4] text-deep-coffee/80">
               A perfect blend of premium tea,<br className="hidden lg:block" /> delicious snacks & sweet moments.
             </p>
   
@@ -69,7 +69,7 @@ const specialties = [
           </div>
   
           {/* RIGHT SIDE: Looping Carousel */}
-          <div className="relative mt-8 flex w-full items-center gap-4 lg:absolute lg:left-[317px] lg:top-[28px] lg:mt-0 lg:h-[305px] lg:w-[calc(100%-317px-120px)]">
+          <div className="relative mt-8 flex w-full items-center gap-4 lg:absolute lg:left-[317px] lg:top-7 lg:mt-0 lg:h-[305px] lg:w-[calc(100%-317px-120px)]">
             
             <div className="relative flex w-full overflow-hidden">
               
@@ -81,7 +81,7 @@ const specialties = [
                 {duplicatedSpecialties.map((item, index) => (
                   <div 
                     key={`${item.id}-${index}`} 
-                    className="group relative h-[305px] w-[250px] shrink-0 snap-start overflow-hidden rounded-[18px] border border-[#A76024] bg-deep-coffee shadow-sm"
+                    className="group relative h-[305px] w-62.5 shrink-0 snap-start overflow-hidden rounded-[18px] border border-caramel bg-deep-coffee shadow-sm"
                   >
                     <img 
                       src={item.img} 
@@ -89,7 +89,7 @@ const specialties = [
                       className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     
-                    <div className="absolute inset-x-0 bottom-0 h-[140px] bg-gradient-to-t from-[#2C1810] via-[#2C1810]/80 to-transparent" />
+                    <div className="absolute inset-x-0 bottom-0 h-35 bg-linear-to-t from-deep-coffee via-deep-coffee/80 to-transparent" />
                     
                     <div className="absolute inset-x-0 bottom-0 flex h-[75px] items-center justify-center">
                       <h3 className="font-mona text-[13px] font-semibold tracking-[0.15em] text-warm-cream">
@@ -105,17 +105,17 @@ const specialties = [
           </div>
   
           {/* ARROWS - Connected to handlers */}
-          <div className="mt-6 flex w-full items-center justify-center gap-4 lg:absolute lg:right-[30px] lg:top-[30px] lg:mt-0 lg:w-auto lg:flex-col z-20">
+          <div className="mt-6 flex w-full items-center justify-center gap-4 lg:absolute lg:right-7.5 lg:top-7.5 lg:mt-0 lg:w-auto lg:flex-col z-20">
             <button 
               onClick={handlePrev}
-              className="flex h-12 w-12 items-center justify-center rounded-full border border-[#A76024] bg-warm-cream/50 backdrop-blur-sm text-caramel transition-colors hover:bg-[#A76024] hover:text-white"
+              className="flex h-12 w-12 items-center justify-center rounded-full border border-caramel bg-warm-cream/50 backdrop-blur-sm text-caramel transition-colors hover:bg-caramel hover:text-white"
               aria-label="Previous"
             >
               <ArrowLeft className="h-5 w-5" />
             </button>
             <button 
               onClick={handleNext}
-              className="flex h-12 w-12 items-center justify-center rounded-full border border-[#A76024] bg-warm-cream/50 backdrop-blur-sm text-caramel transition-colors hover:bg-[#A76024] hover:text-white"
+              className="flex h-12 w-12 items-center justify-center rounded-full border border-caramel bg-warm-cream/50 backdrop-blur-sm text-caramel transition-colors hover:bg-caramel hover:text-white"
               aria-label="Next"
             >
               <ArrowRight className="h-5 w-5" />

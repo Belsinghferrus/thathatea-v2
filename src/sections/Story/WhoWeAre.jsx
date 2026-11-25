@@ -9,7 +9,7 @@ import decoScroll from "../../assets/images/story/wrap.png";
 function WhoWeAre() {
   return (
     // Section with zero bottom padding so the mascot sits perfectly flush
-    <section className="relative flex min-h-[80svh] w-full flex-col justify-center overflow-hidden bg-[#F6EEDF] pt-32 pb-0 lg:pt-0 lg:pb-0">
+    <section className="relative flex min-h-[80svh] w-full flex-col justify-center overflow-hidden bg-soft-ivory pt-32 pb-0 lg:pt-0 lg:pb-0">
       
       {/* =========================================
           BACKGROUND DECORATIONS (Scaled down)
@@ -38,29 +38,29 @@ function WhoWeAre() {
       {/* =========================================
           TEXT CONTENT (Pushed to the right)
       ========================================= */}
-      <div className="relative z-10 mx-auto flex w-full max-w-[1600px] justify-center px-6 lg:justify-end lg:px-16 xl:px-32">
+      <div className="relative z-10 mx-auto flex w-full max-w-400 justify-center px-6 lg:justify-end lg:px-16 xl:px-32">
         
         {/* Text Container restricts width on desktop so it sits on the right half */}
         <div className="flex w-full flex-col items-center text-center lg:w-[55%] lg:items-start lg:text-left xl:w-[50%]">
           
           {/* Script Kicker */}
-          <span className="font-allura text-4xl text-[#A76024] sm:text-5xl lg:text-6xl xl:text-[4rem]">
+          <span className="font-allura text-4xl text-caramel sm:text-5xl lg:text-6xl xl:text-[4rem]">
             Who we are
           </span>
 
           {/* Main Heading */}
-          <h2 className="mt-2 font-thunder text-4xl  uppercase leading-[1] tracking-[-0.02em] text-[#2C1810] sm:text-5xl lg:text-6xl xl:text-[4.5rem]">
+          <h2 className="mt-2 font-thunder text-4xl  uppercase leading-none tracking-[-0.02em] text-deep-coffee sm:text-5xl lg:text-6xl xl:text-[4.5rem]">
             Built on Legacy.<br />
             Grown Through<br />
-            <span className="text-[#A76024]">Determination.</span>
+            <span className="text-caramel">Determination.</span>
           </h2>
 
           {/* Two-Column Text Area */}
           <div className="mt-8 grid w-full grid-cols-1 gap-6 sm:mt-10 md:grid-cols-2 md:gap-8 lg:mt-12 xl:gap-10">
             
             {/* Paragraph 1 (With Drop Cap) */}
-            <p className="font-mona text-xs leading-relaxed text-[#2C1810]/80 sm:text-sm lg:text-[15px]">
-              <span className="float-left mr-2 mt-1 font-thunder text-[3rem] leading-[0.75] text-[#A76024] sm:text-[3.5rem]">
+            <p className="font-mona text-xs leading-relaxed text-deep-coffee/80 sm:text-sm lg:text-[15px]">
+              <span className="float-left mr-2 mt-1 font-thunder text-[3rem] leading-[0.75] text-caramel sm:text-[3.5rem]">
                 O
               </span>
               ur story begins with the business wisdom and experience of the founder's
@@ -69,7 +69,7 @@ function WhoWeAre() {
             </p>
 
             {/* Paragraph 2 */}
-            <p className="font-mona text-xs leading-relaxed text-[#2C1810]/80 sm:text-sm lg:text-[15px]">
+            <p className="font-mona text-xs leading-relaxed text-deep-coffee/80 sm:text-sm lg:text-[15px]">
               The founder carried that spirit forward with his own effort and determination.
               Without outside support, the journey grew through challenges and hard work
               into a business at crores-level scale. Through every chapter, quality and
@@ -88,7 +88,7 @@ function WhoWeAre() {
         <img
           src={mascotTray}
           alt="Thatha holding a tray of tea and snacks"
-          className="w-full max-w-[260px] object-contain object-bottom sm:max-w-[320px] lg:max-w-[450px] xl:max-w-[550px]"
+          className="w-full max-w-65 object-contain object-bottom sm:max-w-80 lg:max-w-112.5 xl:max-w-137.5"
         />
       </div>
 

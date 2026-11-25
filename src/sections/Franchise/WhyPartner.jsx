@@ -41,7 +41,7 @@ function WhyPartner() {
         />
       </div>
 
-      <div className="relative z-10 mx-auto flex w-full max-w-[1600px] flex-col items-center px-6 lg:px-16 xl:px-24">
+      <div className="relative z-10 mx-auto flex w-full max-w-400 flex-col items-center px-6 lg:px-16">
         {/* Section Heading */}
         <div className="text-center">
           <h2 className="font-thunder text-4xl uppercase leading-[0.92] tracking-[-0.01em] text-deep-coffee sm:text-5xl lg:text-6xl xl:text-[4rem]">
@@ -59,17 +59,17 @@ function WhyPartner() {
                 className="flex flex-col items-center text-center group"
               >
                 {/* Bare Outline Icon Matching Design Reference */}
-                <div className="flex h-12 w-12 items-center justify-center text-[#A76024] transition-transform duration-300 group-hover:scale-110">
-                  <IconComponent className="h-8 w-8 text-[#A76024]" strokeWidth={1.8} />
+                <div className="flex h-12 w-12 items-center justify-center text-caramel transition-transform duration-300 group-hover:scale-110">
+                  <IconComponent className="h-8 w-8 text-caramel" strokeWidth={1.8} />
                 </div>
 
                 {/* Benefit Title - Exact Figma Specs: Mona Sans, 600 SemiBold, 22px, 33px line-height, uppercase, #2C1810 */}
-                <h3 className="mt-5  text-base font-semibold uppercase tracking-normal text-[#2C1810] sm:text-lg lg:text-[18px] lg:leading-[33px]">
+                <h3 className="mt-5  text-base font-semibold uppercase tracking-normal text-deep-coffee sm:text-lg lg:text-[18px] lg:leading-[33px]">
                   {item.title}
                 </h3>
 
                 {/* Benefit Description */}
-                <p className="mt-2.5 max-w-[240px] font-mona text-xs leading-relaxed text-deep-coffee/80 sm:text-sm">
+                <p className="mt-2.5 max-w-60 font-mona text-xs leading-relaxed text-deep-coffee/80 sm:text-sm">
                   {item.description}
                 </p>
               </div>

@@ -13,10 +13,10 @@ function StatsBreak() {
 
   return (
     // Dark brown background, fixed height
-    <div className="relative flex h-[90px] w-full items-center overflow-hidden bg-[#2C1810] text-[#F6EEDF]">
+    <div className="relative flex h-22.5 w-full items-center overflow-hidden bg-deep-coffee text-soft-ivory">
       
       {/* DESKTOP VIEW: Static and evenly spaced */}
-      <div className="mx-auto hidden w-full max-w-[1600px] items-center justify-evenly px-6 lg:flex">
+      <div className="mx-auto hidden w-full max-w-400 items-center justify-evenly px-6 lg:flex">
         {stats.map((stat, index) => (
           <React.Fragment key={index}>
             {/* Stat Item */}
@@ -31,7 +31,7 @@ function StatsBreak() {
 
             {/* Vertical Divider (Except after the last item) */}
             {index !== stats.length - 1 && (
-              <div className="h-8 w-[1px] bg-[#F6EEDF]/20" />
+              <div className="h-8 w-[1px] bg-soft-ivory/20" />
             )}
           </React.Fragment>
         ))}
@@ -43,7 +43,7 @@ function StatsBreak() {
           {duplicatedStats.map((stat, index) => (
             <div 
               key={index} 
-              className="flex w-[200px] shrink-0 flex-col items-center text-center"
+              className="flex w-50 shrink-0 flex-col items-center text-center"
             >
               <span className="font-thunder text-xl font-bold text-[#D8A15E]">
                 {stat.value}

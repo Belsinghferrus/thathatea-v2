@@ -6,20 +6,20 @@ import decoLeftImage from "../../assets/images/home/tea-leaf.png";
 function Franchise() {
   return (
     // 1. Removed bottom padding (pb-0) so the mascot can hit the absolute bottom edge
-    <section className="relative w-full overflow-hidden bg-[#F6EEDF] pt-16 pb-0 lg:pt-24 lg:pb-0">
+    <section className="relative w-full overflow-hidden bg-soft-ivory pt-16 pb-0 lg:pt-24 lg:pb-0">
       
       {/* LEFT DECORATION - Hidden on mobile, visible on desktop */}
       <div className="pointer-events-none absolute inset-y-0 left-0 z-0 hidden w-[30%] lg:block">
         <img 
           src={decoLeftImage} 
           alt="" 
-          className="h-full w-full object-cover object-left-bottom"
+          className="h-full w-full object-cover object-bottom-left"
         />
       </div>
 
       {/* MAIN CONTENT CONTAINER */}
       {/* 2. Changed items-center to items-end on desktop so the mascot drops to the bottom */}
-      <div className="relative z-10 mx-auto grid w-full max-w-[1600px] grid-cols-1 items-end gap-12 px-6 lg:grid-cols-2 lg:gap-8 lg:px-16">
+      <div className="relative z-10 mx-auto grid w-full max-w-400 grid-cols-1 items-end gap-12 px-6 lg:grid-cols-2 lg:gap-8 lg:px-16">
         
         {/* TEXT CONTENT */}
         {/* 3. Added lg:ml-[30%] to push the content 30% from the left, and some bottom padding so it doesn't hit the absolute floor */}
@@ -31,12 +31,12 @@ function Franchise() {
           </span>
 
           {/* Main Heading */}
-          <h2 className="mt-2 font-thunder text-4xl font-bold uppercase leading-[1] tracking-[-0.02em] text-deep-coffee sm:text-5xl lg:text-6xl xl:text-[4rem]">
+          <h2 className="mt-2 font-thunder text-4xl font-bold uppercase leading-none tracking-[-0.02em] text-deep-coffee sm:text-5xl lg:text-6xl xl:text-[4rem]">
             Own a Tea Cafe<br />That People Want.
           </h2>
 
           {/* Body Text */}
-          <p className="mt-6 max-w-[480px] font-mona text-sm leading-relaxed text-deep-coffee/80 sm:text-base lg:text-lg">
+          <p className="mt-6 max-w-120 font-mona text-sm leading-relaxed text-deep-coffee/80 sm:text-base lg:text-lg">
             Be a part of a trusted, fast-growing brand with a strong customer base, proven model and complete support.
           </p>
 
@@ -54,7 +54,7 @@ function Franchise() {
           <img
             src={mascotThumbsUp}
             alt="Thatha giving a thumbs up holding tea"
-            className="w-full max-w-[320px] object-contain object-bottom sm:max-w-[450px] lg:max-w-[600px]"
+            className="w-full max-w-80 object-contain object-bottom sm:max-w-112.5 lg:max-w-150"
           />
         </div>
 
