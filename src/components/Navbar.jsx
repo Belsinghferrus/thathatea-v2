@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { NAV_LINKS, ROUTES } from "../constant/routes.js";
+import { useShop } from "../context/ShopContext.jsx";
 import logo from "../assets/images/logo.webp";
 
 function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const location = useLocation();
+    const { cartTotals } = useShop();
 
     // Handle scroll for background blur/shadow
     useEffect(() => {
@@ -170,31 +172,51 @@ function Navbar() {
                     </p>
                     
                     {/* Profile */}
-                    <button className="flex items-center gap-3 w-full px-4 py-3 text-left font-mona text-deep-coffee transition-colors hover:text-caramel">
+                    <NavLink
+                        to={ROUTES.PROFILE}
+                        className="flex items-center gap-3 w-full px-4 py-3 text-left font-mona text-deep-coffee transition-colors hover:text-caramel"
+                    >
                         <svg className="w-5 h-5 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                         </svg>
                         <span>Profile</span>
-                    </button>
+                    </NavLink>
 
                     {/* Cart */}
-                    <button className="flex items-center justify-between w-full px-4 py-3 text-left font-mona text-deep-coffee transition-colors hover:text-caramel">
+                    <NavLink
+                        to={ROUTES.CART}
+                        className="flex items-center justify-between w-full px-4 py-3 text-left font-mona text-deep-coffee transition-colors hover:text-caramel"
+                    >
                         <div className="flex items-center gap-3">
                             <svg className="w-5 h-5 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                             </svg>
                             <span>Cart</span>
                         </div>
-                        <span className="flex h-5 w-5 items-center justify-center rounded-full bg-caramel text-[10px] text-white">0</span>
-                    </button>
+                        <span className="flex h-5 w-5 items-center justify-center rounded-full bg-caramel text-[10px] text-white">{cartTotals.itemCount}</span>
+                    </NavLink>
+
+                    {/* My Orders */}
+                    <NavLink
+                        to={ROUTES.ORDERS}
+                        className="flex items-center gap-3 w-full px-4 py-3 text-left font-mona text-deep-coffee transition-colors hover:text-caramel"
+                    >
+                        <svg className="w-5 h-5 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                        </svg>
+                        <span>My Orders</span>
+                    </NavLink>
 
                     {/* Login */}
-                    <button className="flex items-center gap-3 w-full px-4 py-3 text-left font-mona text-deep-coffee transition-colors hover:text-caramel">
+                    <NavLink
+                        to={ROUTES.SIGNIN}
+                        className="flex items-center gap-3 w-full px-4 py-3 text-left font-mona text-deep-coffee transition-colors hover:text-caramel"
+                    >
                         <svg className="w-5 h-5 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
                         </svg>
                         <span>Login / Register</span>
-                    </button>
+                    </NavLink>
                 </div>
             </div>
         </>

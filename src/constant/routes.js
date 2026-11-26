@@ -7,6 +7,12 @@ export const ROUTES = {
     FRANCHISE: "/franchise",
     CONTACT: "/contact",
     MANUFACTURING: "/manufacturing",
+    SIGNIN: "/signin",
+    SIGNUP: "/signup",
+    PROFILE: "/profile",
+    CART: "/cart",
+    ORDERS: "/orders",
+    ORDER_DETAILS: "/orders/:orderId",
   };
   
   export const NAV_LINKS = [
