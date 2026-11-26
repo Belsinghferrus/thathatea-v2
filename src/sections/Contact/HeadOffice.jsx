@@ -25,7 +25,7 @@ function HeadOffice() {
         <img src={curvedShape} alt="" className="w-full object-contain" />
       </div>
 
-      <div className="relative z-10 mx-auto w-full max-w-400 px-6 lg:px-16">
+      <div className="relative z-10 mx-auto w-full max-w-350 px-6 lg:px-16">
         <div className="grid grid-cols-1 items-end gap-10 lg:grid-cols-12 lg:gap-6">
           {/* Left Column: Franchise Invitation */}
           <div className="flex flex-col items-center text-center lg:col-span-5 lg:items-start lg:text-left pb-12 sm:pb-16 lg:pb-20">

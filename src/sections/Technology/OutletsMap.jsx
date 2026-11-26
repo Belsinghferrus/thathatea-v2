@@ -1,4 +1,4 @@
-import mascotGesturing from "../../assets/images/tech/8d5d2ae5-fa35-4387-8709-0be6f63de28a 1.png";
+import mascotGesturing from "../../assets/images/tech/mascot-gesture.png";
 import ovalBg from "../../assets/images/tech/oval-bg.png";
 import bgSketch from "../../assets/images/tech/b2ba8bcd-1ae9-4e8f-9638-bbae2a3936a2 7.png";
 
@@ -11,7 +11,7 @@ const OUTLET_STATS = [
 
 function OutletsMap() {
   return (
-    <section className="relative w-full overflow-hidden bg-soft-ivory pt-14 pb-0 lg:pt-16">
+    <section className="relative w-full overflow-hidden bg-soft-ivory pt-14 pb-22 lg:pt-16">
       {/* Background Sketch (Storefront Left + Tea Glass & Samosa Right) */}
       <div className="pointer-events-none absolute inset-0 z-0">
         <img
@@ -42,7 +42,7 @@ function OutletsMap() {
         {/* Right Column: Bengaluru Map Card + Centered 4 Stats with Dividers */}
         <div className="order-1 flex flex-col items-center pb-10 lg:order-2 lg:col-span-7 lg:pb-12">
           {/* Bengaluru Map Card */}
-          <div className="relative h-65 w-full max-w-155 overflow-hidden rounded-2xl border border-deep-coffee/10 bg-white shadow-xl sm:h-77.5">
+          <div className="relative h-75 w-full max-w-155 overflow-hidden rounded-2xl border border-deep-coffee/10 bg-white shadow-xl sm:h-99.5">
             <iframe
               title="Thatha Tea Bengaluru Outlets Map"
               src="https://maps.google.com/maps?q=Bengaluru,Karnataka&t=&z=12&ie=UTF8&iwloc=&output=embed"

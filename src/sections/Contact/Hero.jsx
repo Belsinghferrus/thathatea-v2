@@ -11,19 +11,19 @@ function Hero() {
   };
 
   return (
-    <section className="relative flex min-h-[92svh] w-full flex-col justify-end overflow-hidden bg-[#F7EBD5] pt-28 pb-0 lg:min-h-screen lg:pt-0">
+    <section className="relative flex min-h-[92svh]  flex-col justify-end overflow-hidden bg-[#F7EBD5] pt-28 pb-20 lg:min-h-screen lg:pt-0">
       {/* Background Illustrated Image with Subtle Opacity */}
       <div className="pointer-events-none absolute inset-0 z-0">
         <img
           src={heroBg}
           alt=""
-          className="h-full w-full object-cover object-bottom-left opacity-30 mix-blend-multiply"
+          className="h-full w-full object-cover object-bottom-left opacity-20 mix-blend-multiply"
         />
         <div className="absolute inset-0 bg-linear-to-r from-[#F7EBD5]/70 via-[#F7EBD5]/30 to-transparent" />
       </div>
 
       {/* Main Content Area */}
-      <div className="relative z-10 mx-auto flex w-full max-w-400 items-end px-6 pb-16 sm:pb-24 lg:px-16 lg:pb-20 xl:pb-24">
+      <div className="relative z-10 mx-auto flex w-full max-w-350 items-end px-6 pb-16 sm:pb-24 lg:px-16 lg:pb-20 xl:pb-24">
         <div className="flex w-full flex-col items-center text-center lg:w-[46%] lg:items-start lg:text-left">
           {/* Decorative Script Kicker */}
           <span className="font-allura text-4xl text-caramel sm:text-5xl lg:text-6xl xl:text-[4.2rem]">
