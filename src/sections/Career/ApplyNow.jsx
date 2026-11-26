@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { ArrowUpRight, CheckCircle2 } from "lucide-react";
-import applyBgImg from "../../assets/images/career/Vintage-tea-bg 1.png";
+import applyBgImg from "../../assets/images/career/Vintage-tea-bg.webp";
 
 const ROLE_OPTIONS = [
   "TEA MASTER / TEA BREWER",

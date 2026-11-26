@@ -37,7 +37,7 @@ function Culture() {
             OUR CULTURE
           </span>
 
-          <h2 className="mt-2 font-thunder text-4xl uppercase leading-[0.92] tracking-[-0.01em] text-soft-ivory sm:text-5xl lg:text-[3.4rem]">
+          <h2 className="mt-2 font-thunder text-4xl uppercase leading-[1] tracking-[-0.01em] text-soft-ivory sm:text-5xl lg:text-[3.4rem]">
             A WARM &amp; GROWING
             <br />
             WORKPLACE

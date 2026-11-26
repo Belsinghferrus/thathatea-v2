@@ -1,8 +1,11 @@
+import React from "react";
 import { ArrowDown } from "lucide-react";
-import heroMascotImg from "../../assets/images/career/Rectangle 1.png";
-import heroBgSketch from "../../assets/images/career/b2ba8bcd-1ae9-4e8f-9638-bbae2a3936a2 6.png";
 
-function Hero() {
+// --- REPLACE THESE IMPORTS WITH YOUR ACTUAL IMAGE PATHS ---
+import heroMascotImg from "../../assets/images/career/career-mascot.png";
+import vintageBg from "../../assets/images/career/Vintage-tea-bg.webp";
+
+function CareerHero() {
   const handleScrollToPositions = () => {
     const target = document.getElementById("open-positions");
     if (target) {
@@ -11,59 +14,67 @@ function Hero() {
   };
 
   return (
-    <section className="relative flex min-h-svh w-full items-center overflow-hidden bg-soft-ivory pt-28 pb-14 lg:pt-24 lg:pb-0">
-      {/* Subtle Background Sketch */}
+    // 100svh on both mobile and desktop. Flex column on mobile, row on desktop.
+    <section className="relative flex min-h-[90svh] w-full flex-col overflow-hidden bg-[#F6EEDF] pt-28 pb-0 lg:flex-row lg:items-center lg:pt-0">
+      
+      {/* =========================================
+          BACKGROUND IMAGE (Reduced Opacity)
+      ========================================= */}
       <div className="pointer-events-none absolute inset-0 z-0">
         <img
-          src={heroBgSketch}
-          alt=""
-          className="h-full w-full object-cover object-right opacity-15 mix-blend-multiply"
+          src={vintageBg}
+          alt="Vintage Tea Background"
+          className="h-full w-full object-cover object-center opacity-40" 
         />
       </div>
 
-      {/* Main Container - Matches Footer Left/Right Padding */}
-      <div className="relative z-20 mx-auto flex h-full w-full max-w-400 items-center px-6 lg:px-16">
-        <div className="flex w-full flex-col items-start text-left lg:w-[46%]">
-          {/* Decorative Script Kicker */}
-          <span className="font-allura text-3xl text-caramel sm:text-4xl lg:text-[3.1rem] xl:text-[3.5rem]">
+      {/* =========================================
+          MAIN CONTENT CONTAINER (Max 1200px)
+      ========================================= */}
+      <div className="relative z-20 mx-auto flex h-full w-full max-w-[1200px] flex-col items-center px-6 lg:flex-row lg:items-center lg:px-8">
+        
+        {/* LEFT COLUMN: Text Content */}
+        <div className="flex w-full flex-col items-center text-center lg:w-[45%] lg:items-start lg:text-left">
+          
+          {/* Script Kicker */}
+          <span className="font-allura text-4xl text-[#A76024] sm:text-5xl lg:text-6xl xl:text-[4rem]">
             Careers at Thatha
           </span>
 
-          {/* Main Heading - font-thunder, leading-[0.92], no font-bold */}
-          <h1 className="mt-1 font-thunder text-5xl uppercase leading-[0.92] tracking-[-0.01em] text-deep-coffee sm:text-6xl lg:text-[4.75rem] xl:text-[5.75rem]">
-            MORE THAN
-            <br />
-            A JOB,
+          {/* Main Heading */}
+          <h1 className="mt-2 font-thunder text-6xl uppercase leading-[0.9] tracking-[-0.02em] text-[#2C1810] sm:text-7xl lg:text-[5.5rem] xl:text-[6.5rem]">
+            More Than<br />A Job,
           </h1>
 
           {/* Supporting Copy */}
-          <p className="mt-5 max-w-95 font-mona text-xs leading-relaxed text-deep-coffee/80 sm:text-sm">
-            Be part of a team that serves great food, warm hospitality and
-            experiences people love. Grow with us.
+          <p className="mt-6 max-w-[420px] font-mona text-sm leading-relaxed text-[#2C1810]/80 sm:text-base lg:text-lg">
+            Be part of a team that serves great food, brings people together and creates brighter days. Grow with us.
           </p>
 
           {/* CTA Button */}
           <button
             type="button"
             onClick={handleScrollToPositions}
-            className="group mt-7 inline-flex cursor-pointer items-center justify-center gap-2 rounded-lg bg-caramel px-6 py-3 font-mona text-xs font-semibold uppercase tracking-wider text-white shadow-sm transition-all duration-300 hover:bg-[#8D4A15] active:scale-95"
+            className="group mt-8 inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-[#A76024] px-6 py-3.5 font-mona text-xs font-semibold uppercase tracking-widest text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:bg-[#2C1810] active:scale-95 lg:mt-10 lg:px-8 lg:py-4 lg:text-sm"
           >
-            <span>VIEW OPEN ROLES</span>
-            <ArrowDown className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-y-0.5" />
+            <span>Explore Open Roles</span>
+            <ArrowDown className="h-4 w-4 transition-transform duration-300 group-hover:translate-y-1 lg:h-5 lg:w-5" />
           </button>
         </div>
-      </div>
 
-      {/* Right Side Mascot Behind Wooden Tea Counter */}
-      <div className="pointer-events-none relative z-10 mt-8 flex w-full justify-center lg:absolute lg:right-[4%] lg:bottom-0 lg:mt-0 lg:h-[82%] lg:w-auto lg:justify-end xl:right-[6%] xl:h-[86%]">
-        <img
-          src={heroMascotImg}
-          alt="Thatha Tea mascot serving tea behind traditional counter"
-          className="h-72 w-auto object-contain object-bottom sm:h-96 lg:h-full"
-        />
+        {/* RIGHT COLUMN: Mascot Image (Made much larger) */}
+        {/* On mobile, it sits in normal flow. On desktop, it's absolute bottom right. */}
+        <div className="relative mt-12 flex w-full flex-grow items-end justify-center lg:absolute lg:top-50 lg:right-0 lg:mt-0 lg:h-full lg:w-[65%] lg:justify-end">
+          <img
+            src={heroMascotImg}
+            alt="Thatha Tea mascot serving tea behind traditional counter"
+            className="w-full max-w-[450px] object-contain object-bottom sm:max-w-[600px] lg:max-w-[1050px] xl:max-w-[1250px]"
+          />
+        </div>
+
       </div>
     </section>
   );
 }
 
-export default Hero;
+export default CareerHero;
