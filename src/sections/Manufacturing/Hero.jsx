@@ -25,7 +25,7 @@ function Hero() {
       </div>
 
       {/* Main Content Container - Shared Left/Right Alignment Across Entire Page */}
-      <div className="relative z-20 mx-auto flex h-full w-full max-w-400 items-center px-6 lg:px-16">
+      <div className="relative z-20 mx-auto flex h-full w-full max-w-350 items-center px-6 lg:px-16">
         <div className="flex w-full flex-col items-start text-left lg:w-[48%]">
           {/* Decorative Script Kicker */}
           <span className="font-allura text-4xl text-caramel sm:text-5xl lg:text-[3.1rem] xl:text-[3.5rem]">

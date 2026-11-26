@@ -23,7 +23,7 @@ function Hero() {
       </div>
 
       {/* Main Content Area */}
-      <div className="relative z-10 mx-auto flex w-full max-w-400 items-end px-6 pb-16 sm:pb-24 lg:px-16 lg:pb-20 xl:pb-24">
+      <div className="relative z-10 mx-auto flex w-full max-w-350 items-end px-6 pb-16 sm:pb-24 lg:px-16 lg:pb-20 xl:pb-24">
         <div className="flex w-full flex-col items-center text-center lg:w-[46%] lg:items-start lg:text-left">
           {/* Decorative Script Kicker */}
           <span className="font-allura text-4xl text-caramel sm:text-5xl lg:text-6xl xl:text-[4.2rem]">

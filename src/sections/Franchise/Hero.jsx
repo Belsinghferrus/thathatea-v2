@@ -15,7 +15,7 @@ function Hero() {
       </div>
 
       {/* Main Content: Left Text Column */}
-      <div className="relative z-10 mx-auto flex w-full max-w-400 items-end px-6 pb-20 sm:pb-34 lg:px-16 lg:pb-24 xl:pb-58">
+      <div className="relative z-10 mx-auto flex w-full max-w-350 items-end px-6 pb-20 sm:pb-34 lg:px-16 lg:pb-24 xl:pb-58">
         <div className="flex w-full flex-col items-center text-center lg:w-[38%] lg:items-start lg:text-left">
           {/* Script Kicker */}
           <span className="font-allura text-4xl text-caramel sm:text-5xl lg:text-6xl xl:text-[4.2rem]">

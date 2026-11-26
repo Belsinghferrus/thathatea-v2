@@ -25,7 +25,7 @@ function TechHero() {
       {/* =========================================
           MAIN CONTENT CONTAINER (Max 1300px)
       ========================================= */}
-      <div className="relative z-20 mx-auto flex h-full w-full max-w-[1300px] flex-col items-center px-6 lg:flex-row lg:items-center lg:px-8">
+      <div className="relative z-20 mx-auto flex h-full w-full max-w-[1350px] flex-col items-center px-6 lg:flex-row lg:items-center lg:px-8">
         
         {/* LEFT COLUMN: Text Content */}
         <div className="flex w-full flex-col items-center text-center lg:w-[48%] lg:items-start lg:text-left">

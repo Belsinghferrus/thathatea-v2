@@ -102,7 +102,7 @@ function ContactForm() {
       </div>
 
       {/* 5. Main Content */}
-      <div className="relative z-10 mx-auto w-full max-w-[1600px] px-6 lg:px-16">
+      <div className="relative z-10 mx-auto w-full max-w-[1350px] px-6 lg:px-16">
         <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-8 xl:gap-12">
           
           {/* Left Column: Heading & Chai Glass */}

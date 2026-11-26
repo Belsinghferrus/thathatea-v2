@@ -111,7 +111,7 @@ function SocialMedia() {
         <img src={greenLeavesBranch} alt="" className="w-full object-contain rotate-120" />
       </div>
 
-      <div className="relative z-10 mx-auto w-full max-w-400 px-6 lg:px-16">
+      <div className="relative z-10 mx-auto w-full max-w-350 px-6 lg:px-16">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-8">
           {/* Left Column: Heading, Description, and Social Media Cards */}
           <div className="flex flex-col items-center text-center lg:col-span-7 lg:items-start lg:text-left">
