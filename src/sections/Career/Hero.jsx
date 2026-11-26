@@ -31,7 +31,7 @@ function CareerHero() {
       {/* =========================================
           MAIN CONTENT CONTAINER (Max 1200px)
       ========================================= */}
-      <div className="relative z-20 mx-auto flex h-full w-full max-w-[1200px] flex-col items-center px-6 lg:flex-row lg:items-center lg:px-8">
+      <div className="relative z-20 mx-auto flex h-full w-full max-w-[1400px] flex-col items-center px-6 lg:flex-row lg:items-center lg:px-8">
         
         {/* LEFT COLUMN: Text Content */}
         <div className="flex w-full flex-col items-center text-center lg:w-[45%] lg:items-start lg:text-left">
@@ -64,7 +64,7 @@ function CareerHero() {
 
         {/* RIGHT COLUMN: Mascot Image (Made much larger) */}
         {/* On mobile, it sits in normal flow. On desktop, it's absolute bottom right. */}
-        <div className="relative mt-12 flex w-full flex-grow items-end justify-center lg:absolute lg:top-50 lg:right-0 lg:mt-0 lg:h-full lg:w-[65%] lg:justify-end">
+        <div className="relative mt-12 flex w-full flex-grow items-end justify-center lg:absolute lg:top-60 lg:right-0 lg:mt-0 lg:h-full lg:w-[65%] lg:justify-end">
           <img
             src={heroMascotImg}
             alt="Thatha Tea mascot serving tea behind traditional counter"

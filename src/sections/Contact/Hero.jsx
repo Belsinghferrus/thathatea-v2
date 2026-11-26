@@ -11,13 +11,13 @@ function Hero() {
   };
 
   return (
-    <section className="relative flex min-h-[92svh] w-full flex-col justify-end overflow-hidden bg-[#F7EBD5] pt-28 pb-0 lg:min-h-screen lg:pt-0">
+    <section className="relative flex min-h-[92svh]  flex-col justify-end overflow-hidden bg-[#F7EBD5] pt-28 pb-20 lg:min-h-screen lg:pt-0">
       {/* Background Illustrated Image with Subtle Opacity */}
       <div className="pointer-events-none absolute inset-0 z-0">
         <img
           src={heroBg}
           alt=""
-          className="h-full w-full object-cover object-bottom-left opacity-30 mix-blend-multiply"
+          className="h-full w-full object-cover object-bottom-left opacity-20 mix-blend-multiply"
         />
         <div className="absolute inset-0 bg-linear-to-r from-[#F7EBD5]/70 via-[#F7EBD5]/30 to-transparent" />
       </div>

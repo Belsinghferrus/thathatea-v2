@@ -11,6 +11,11 @@ const Menu = () => {
             <main>
                 <MenuHero />
                 <MenuTicker />
+                
+                <div className="w-full h-20 bg-soft-ivory flex items-center justify-center">
+                    <h2>DEVELOPMENT STILL PENDING ----</h2>
+                </div>
+
                 <MenuSection />
             </main>
         </>
