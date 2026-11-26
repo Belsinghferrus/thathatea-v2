@@ -49,7 +49,7 @@ function Bakery() {
   ];
 
   return (
-    <section className="relative w-full bg-soft-ivory">
+    <section className="relative w-full pl-10 pr-10 bg-soft-ivory">
       <div className="w-full overflow-hidden rounded-3xl bg-roast-brown py-14 sm:rounded-3xl sm:py-16 lg:rounded-3xl lg:py-20">
         <div className="mx-auto w-full max-w-400 px-6 lg:px-16">
           <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-8">
