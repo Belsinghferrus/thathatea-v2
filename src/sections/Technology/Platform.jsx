@@ -9,8 +9,8 @@ const PLATFORM_HIGHLIGHTS = [
 
 function Platform() {
   return (
-    <section className="relative w-full bg-[#9F5B23] py-12 sm:py-14 lg:py-16">
-      <div className="mx-auto grid w-full max-w-400 grid-cols-1 items-center gap-8 px-6 lg:grid-cols-12 lg:gap-12 lg:px-16">
+    <section className="relative min-h-40vh w-full bg-[#9F5B23] py-12 sm:py-14 lg:py-16">
+      <div className="mx-auto grid w-full max-w-350 grid-cols-1 items-center gap-8 px-6 lg:grid-cols-12 lg:gap-12 lg:px-16">
         {/* Left: Steaming Chai Glass on Wooden Board */}
         <div className="flex justify-center lg:col-span-5 lg:justify-start">
           <img

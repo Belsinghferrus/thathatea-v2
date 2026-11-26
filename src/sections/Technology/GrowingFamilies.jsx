@@ -3,15 +3,15 @@ import stallToOutletImg from "../../assets/images/tech/image 2364.png";
 
 function GrowingFamilies() {
   return (
-    <section className="relative w-full overflow-hidden bg-deep-coffee py-16 sm:py-20 lg:py-24">
-      <div className="mx-auto grid w-full max-w-400 grid-cols-1 items-center gap-10 px-6 lg:grid-cols-12 lg:gap-12 lg:px-16">
+    <section className="relative w-full overflow-hidden bg-deep-coffee py-16 sm:py-20 lg:py-0">
+      <div className="mx-auto grid w-full max-w-350 grid-cols-1 items-center gap-10 px-6 lg:grid-cols-12 lg:gap-12 lg:px-16">
         {/* Left Column: Heading & Story Copy */}
         <div className="flex flex-col items-start text-left lg:col-span-5">
           <span className="font-mona text-[10px] font-semibold uppercase tracking-[0.2em] text-caramel sm:text-[11px]">
             GROWING DAY BY DAY
           </span>
 
-          <h2 className="mt-2 font-thunder text-4xl uppercase leading-[0.92] tracking-[-0.01em] text-soft-ivory sm:text-5xl lg:text-[3.5rem]">
+          <h2 className="mt-2 font-thunder text-4xl uppercase leading-[1] tracking-[-0.01em] text-soft-ivory sm:text-5xl lg:text-[3.5rem]">
             FROM ONE STALL
             <br />
             TO MANY TEA FAMILIES.
@@ -32,7 +32,7 @@ function GrowingFamilies() {
             className="w-full max-w-165 object-contain"
           />
 
-          <div className="mt-4 flex flex-col items-center gap-2 self-center lg:items-end lg:self-end">
+          <div className="mt-4 flex flex-col items-center gap-2 mb-4 self-center lg:items-end lg:self-end">
             <a
               href="mailto:info@thathatea.com"
               className="flex items-center gap-2 font-mona text-xs text-soft-ivory/85 transition-colors hover:text-caramel"
