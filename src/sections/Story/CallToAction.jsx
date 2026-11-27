@@ -47,7 +47,7 @@ function CallToAction() {
           </h2>
           
           <p className="mt-6 font-mona text-sm leading-relaxed text-soft-ivory/80 sm:text-base lg:text-lg">
-            Bring the Thatha Tea experience to your city. Let's create something meaningful together.
+            Bring the Thatha Tea experience to your city. Let's create something meaningful <br /> together.
           </p>
 
           <button className="group mt-8 inline-flex items-center justify-center gap-2 rounded-xl bg-caramel px-6 py-3.5 font-mona text-xs font-semibold uppercase tracking-widest text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:bg-soft-ivory hover:text-deep-coffee lg:mt-10 lg:px-8 lg:py-4 lg:text-sm">
