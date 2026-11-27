@@ -1,37 +1,32 @@
-import React from "react";
-import { Wheat, Heart, Sparkles, Star, Coffee, Smile } from "lucide-react";
+import { Wheat, Heart, Sparkles, Award, Coffee, Smile } from "lucide-react";
 
-const tickerItems = [
+const RIBBON_ITEMS = [
   { text: "FRESH INGREDIENTS", icon: Wheat },
   { text: "BAKED WITH LOVE", icon: Heart },
   { text: "PREPARED IN HYGIENIC KITCHENS", icon: Sparkles },
-  { text: "QUALITY YOU CAN TASTE", icon: Star },
+  { text: "QUALITY YOU CAN TASTE", icon: Award },
   { text: "ALWAYS DELICIOUS", icon: Coffee },
   { text: "EVERY BITE, A LITTLE HAPPINESS", icon: Smile },
 ];
 
 function MenuTicker() {
-  // Duplicate the array to create a seamless scrolling effect
-  const duplicatedItems = [...tickerItems, ...tickerItems, ...tickerItems];
+  const duplicatedItems = [...RIBBON_ITEMS, ...RIBBON_ITEMS, ...RIBBON_ITEMS];
 
   return (
-    // Dark brown background
-    <div className="relative flex w-full overflow-hidden bg-deep-coffee py-6">
-      
-      {/* The Animated Track - Added flex-nowrap to prevent wrapping */}
-      <div className="flex w-max flex-nowrap animate-marquee items-center hover:[animation-play-state:paused]">
+    <div className="relative flex w-full overflow-hidden bg-[#3A1E0E] py-4 sm:py-5">
+      <div className="flex w-max flex-nowrap items-center animate-menu-marquee hover:[animation-play-state:paused]">
         {duplicatedItems.map((item, index) => {
           const Icon = item.icon;
           return (
-            <div 
-              key={index} 
-              className="flex shrink-0 items-center gap-3 px-6 lg:px-8"
+            <div
+              key={`${item.text}-${index}`}
+              className="flex shrink-0 items-center gap-2.5 px-5 lg:px-7"
             >
-              {/* Icon colored to match the caramel accent */}
-              <Icon className="h-4 w-4 shrink-0 text-caramel" strokeWidth={2} />
-              
-              {/* Text - Added whitespace-nowrap to ensure it stays on one line */}
-              <span className="whitespace-nowrap font-mona text-xs font-semibold uppercase tracking-[0.15em] text-soft-ivory sm:text-sm">
+              <Icon
+                className="h-4 w-4 shrink-0 text-[#D49653]"
+                strokeWidth={1.8}
+              />
+              <span className="whitespace-nowrap font-mona text-[11px] font-medium uppercase tracking-[0.14em] text-[#F6EEDF] sm:text-xs">
                 {item.text}
               </span>
             </div>
@@ -39,16 +34,15 @@ function MenuTicker() {
         })}
       </div>
 
-      {/* Custom Keyframes for the Marquee Animation */}
-      <style dangerouslySetInnerHTML={{__html: `
-        @keyframes marquee-bakery {
+      <style>{`
+        @keyframes menu-marquee {
           0% { transform: translateX(0); }
-          100% { transform: translateX(-33.33%); } 
+          100% { transform: translateX(-33.333%); }
         }
-        .animate-marquee {
-          animation: marquee-bakery 40s linear infinite;
+        .animate-menu-marquee {
+          animation: menu-marquee 42s linear infinite;
         }
-      `}} />
+      `}</style>
     </div>
   );
 }

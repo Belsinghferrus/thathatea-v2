@@ -165,12 +165,50 @@ export function ShopProvider({ children }) {
     }
   }, [orders]);
 
+  const addToCart = (product, quantity = 1) => {
+    if (!product || product.inStock === false) return;
+    const id = String(product.id);
+    const minQty = Number(product.min) > 0 ? Number(product.min) : 1;
+    const maxQty = Number(product.max) > 0 ? Number(product.max) : 100;
+    const addAmount = Math.max(minQty, quantity);
+
+    setCartItems((prev) => {
+      const existing = prev.find((item) => String(item.id) === id);
+      if (existing) {
+        return prev.map((item) =>
+          String(item.id) === id
+            ? { ...item, quantity: Math.min(maxQty, item.quantity + quantity) }
+            : item
+        );
+      }
+      return [
+        ...prev,
+        {
+          id,
+          name: product.name,
+          price: Number(product.price) || 0,
+          quantity: Math.min(maxQty, addAmount),
+          inStock: true,
+          image: product.image,
+          min: minQty,
+          max: maxQty,
+        },
+      ];
+    });
+  };
+
   const updateQuantity = (id, delta) => {
     setCartItems((prev) =>
       prev
         .map((item) =>
-          item.id === id
-            ? { ...item, quantity: Math.max(0, item.quantity + delta) }
+          String(item.id) === String(id)
+            ? {
+                ...item,
+                quantity: Math.min(
+                  item.max || 100,
+                  Math.max(0, item.quantity + delta)
+                ),
+              }
             : item
         )
         .filter((item) => item.quantity > 0)
@@ -178,7 +216,9 @@ export function ShopProvider({ children }) {
   };
 
   const removeFromCart = (id) => {
-    setCartItems((prev) => prev.filter((item) => item.id !== id));
+    setCartItems((prev) =>
+      prev.filter((item) => String(item.id) !== String(id))
+    );
   };
 
   const placeOrderFromCart = () => {
@@ -216,6 +256,7 @@ export function ShopProvider({ children }) {
         cartItems,
         cartTotals,
         orders,
+        addToCart,
         updateQuantity,
         removeFromCart,
         placeOrderFromCart,
