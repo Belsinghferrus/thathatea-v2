@@ -1,8 +1,8 @@
 import { useState } from "react";
 import GoogleSignIn from "./GoogleSignIn";
 
-function SignInForm({ onRequestOtp }) {
-  const [identifier, setIdentifier] = useState("");
+function SignInForm({ initialValue = "", onRequestOtp }) {
+  const [identifier, setIdentifier] = useState(initialValue);
   const [error, setError] = useState("");
 
   const detectIdentifierType = (value) => {

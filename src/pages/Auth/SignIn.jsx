@@ -1,9 +1,12 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { ROUTES } from "../../constant/routes";
 import AuthLayout from "../../sections/Auth/AuthLayout";
 import SignInForm from "../../sections/Auth/SignInForm";
 import OTPVerification from "../../sections/Auth/OTPVerification";
 
 function SignIn() {
+  const navigate = useNavigate();
   const [step, setStep] = useState("form"); // "form" | "otp"
   const [otpTarget, setOtpTarget] = useState({ type: "mobile", destination: "" });
   const [verifyError, setVerifyError] = useState("");
@@ -14,6 +17,19 @@ function SignIn() {
     setStep("otp");
   };
 
+  const handleBack = () => {
+    if (step === "otp") {
+      setVerifyError("");
+      setStep("form");
+      return;
+    }
+    if (window.history.state?.idx > 0) {
+      navigate(-1);
+    } else {
+      navigate(ROUTES.HOME);
+    }
+  };
+
   const handleVerifyOtp = () => {
     // Backend OTP verification endpoint is not yet configured in this repository
     setVerifyError(
@@ -22,9 +38,12 @@ function SignIn() {
   };
 
   return (
-    <AuthLayout mode="signin">
+    <AuthLayout mode="signin" onBack={handleBack}>
       {step === "form" ? (
-        <SignInForm onRequestOtp={handleRequestOtp} />
+        <SignInForm
+          initialValue={otpTarget.destination}
+          onRequestOtp={handleRequestOtp}
+        />
       ) : (
         <OTPVerification
           verificationType={otpTarget.type}

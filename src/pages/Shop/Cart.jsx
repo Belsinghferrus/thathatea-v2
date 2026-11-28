@@ -13,16 +13,10 @@ function Cart() {
     cartTotals,
     updateQuantity,
     removeFromCart,
-    placeOrderFromCart,
   } = useShop();
 
   const handleCheckout = () => {
-    const createdOrder = placeOrderFromCart();
-    if (createdOrder) {
-      navigate(`/orders/${createdOrder.id}`);
-    } else {
-      navigate(ROUTES.ORDERS);
-    }
+    navigate(ROUTES.CHECKOUT);
   };
 
   return (

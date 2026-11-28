@@ -11,6 +11,14 @@ import {
 } from "lucide-react";
 import logo from "../assets/images/logo.webp";
 
+// TEMPORARY DEMO NAVIGATION: Set to false or remove before production launch
+const ENABLE_DEMO_NAV_LINKS = true;
+
+const DEMO_NAV_LINKS = [
+    { label: "My Orders", path: ROUTES.ORDERS },
+    { label: "My Profile", path: ROUTES.PROFILE },
+];
+
 function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -114,7 +122,7 @@ function Navbar() {
                     </NavLink>
 
                     {/* Desktop Navigation Links */}
-                    <nav className="hidden items-center gap-4 lg:flex xl:gap-6" aria-label="Primary">
+                    <nav className="hidden items-center gap-2.5 lg:flex xl:gap-5" aria-label="Primary">
                         {filteredNavLinks.map((link) => {
                             // Handle the MENU dropdown special case (Using link.label)
                             if (link.label.toUpperCase() === "MENU") {
@@ -182,6 +190,33 @@ function Navbar() {
                                 </NavLink>
                             );
                         })}
+
+                        {/* TEMPORARY DEMO NAVIGATION: Remove before production */}
+                        {ENABLE_DEMO_NAV_LINKS &&
+                            DEMO_NAV_LINKS.map((link) => (
+                                <NavLink
+                                    key={link.path}
+                                    to={link.path}
+                                    className={({ isActive }) =>
+                                        `${navLinkClass({ isActive })} whitespace-nowrap`
+                                    }
+                                >
+                                    {({ isActive }) => (
+                                        <span className="relative inline-flex items-center gap-1.5">
+                                            <span>{link.label}</span>
+                                            <span className="rounded-full bg-[#EFE3CF] px-1.5 py-0.5 text-[9px] font-semibold tracking-wider text-caramel">
+                                                DEMO
+                                            </span>
+                                            <span
+                                                className={[
+                                                    "absolute -bottom-1 left-0 h-[2px] rounded-full bg-caramel transition-all duration-300",
+                                                    isActive ? "w-full opacity-100" : "w-0 opacity-0",
+                                                ].join(" ")}
+                                            />
+                                        </span>
+                                    )}
+                                </NavLink>
+                            ))}
                     </nav>
 
                     {/* Right Side Actions */}
@@ -301,6 +336,27 @@ function Navbar() {
                             )}
                         </div>
                     ))}
+
+                    {/* TEMPORARY DEMO NAVIGATION: Remove before production */}
+                    {ENABLE_DEMO_NAV_LINKS &&
+                        DEMO_NAV_LINKS.map((link) => (
+                            <NavLink
+                                key={link.path}
+                                to={link.path}
+                                className={({ isActive }) =>
+                                    `flex items-center justify-between px-4 py-3 font-mona text-sm font-light uppercase tracking-widest transition-colors ${
+                                        isActive
+                                            ? "font-normal text-caramel"
+                                            : "text-deep-coffee hover:text-caramel"
+                                    }`
+                                }
+                            >
+                                <span>{link.label}</span>
+                                <span className="rounded-full bg-[#EFE3CF] px-2 py-0.5 text-[9px] font-semibold tracking-wider text-caramel">
+                                    DEMO
+                                </span>
+                            </NavLink>
+                        ))}
                 </div>
 
                 {/* Mobile User Actions */}

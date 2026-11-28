@@ -2,11 +2,13 @@ import logo from "../../assets/images/logo.webp";
 import pageBgArt from "../../assets/images/sigin/Pasted 26-11-2026 at 18.59.09.png";
 import rightBottomPlantation from "../../assets/images/sigin/Pasted 26-11-2026 at 18.58.56.png";
 import AuthIllustration from "./AuthIllustration";
+import AuthBackButton from "./AuthBackButton";
 
 function AuthLayout({
   mode = "signin",
   compactLogo = false,
   footerNote = null,
+  onBack,
   children,
 }) {
   return (
@@ -28,6 +30,13 @@ function AuthLayout({
 
         {/* Right Form / Verification Panel */}
         <div className="relative flex flex-col items-center justify-between overflow-hidden bg-[#FBF4E8] px-6 py-8 sm:px-12 sm:py-10 lg:px-14 lg:py-10">
+          {onBack && (
+            <AuthBackButton
+              onClick={onBack}
+              className="absolute top-6 left-6 z-20"
+            />
+          )}
+
           {/* Bottom Tea Plantation Line-Art */}
           <img
             src={rightBottomPlantation}

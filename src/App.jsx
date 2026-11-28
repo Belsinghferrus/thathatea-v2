@@ -15,6 +15,7 @@ import SignIn from "./pages/Auth/SignIn.jsx";
 import SignUp from "./pages/Auth/SignUp.jsx";
 import Profile from "./pages/Profile/Profile.jsx";
 import Cart from "./pages/Shop/Cart.jsx";
+import Checkout from "./pages/Shop/Checkout.jsx";
 import Orders from "./pages/Shop/Orders.jsx";
 import OrderDetails from "./pages/Shop/OrderDetails.jsx";
 
@@ -45,6 +46,7 @@ function AppRouter() {
         <Route path={ROUTES.SIGNUP} element={<SignUp />} />
         <Route path={ROUTES.PROFILE} element={<Profile />} />
         <Route path={ROUTES.CART} element={<Cart />} />
+        <Route path={ROUTES.CHECKOUT} element={<Checkout />} />
         <Route path={ROUTES.ORDERS} element={<Orders />} />
         <Route path={ROUTES.ORDER_DETAILS} element={<OrderDetails />} />
       </Routes>

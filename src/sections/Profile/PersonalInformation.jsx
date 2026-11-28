@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { Check, Pencil } from "lucide-react";
 import topRightLeaves from "../../assets/images/profile/Pasted 26-11-2026 at 20.24.27.png";
 import bottomRightBakery from "../../assets/images/profile/Pasted 26-11-2026 at 20.24.40.png";
+import ShippingAddresses from "./ShippingAddresses";
 
 const STORAGE_KEY = "thatha_user_profile";
 
@@ -277,6 +278,9 @@ function PersonalInformation() {
               )}
             </div>
           </form>
+
+          {/* Shipping Addresses Section */}
+          <ShippingAddresses />
         </div>
       </div>
     </section>

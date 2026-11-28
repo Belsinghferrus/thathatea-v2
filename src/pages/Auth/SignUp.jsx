@@ -1,10 +1,12 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { ROUTES } from "../../constant/routes";
 import AuthLayout from "../../sections/Auth/AuthLayout";
 import SignUpForm from "../../sections/Auth/SignUpForm";
 import OTPVerification from "../../sections/Auth/OTPVerification";
 
 function SignUp() {
+  const navigate = useNavigate();
   const [step, setStep] = useState("form"); // "form" | "otp"
   const [registrationData, setRegistrationData] = useState(null);
   const [verifyError, setVerifyError] = useState("");
@@ -13,6 +15,19 @@ function SignUp() {
     setRegistrationData(data);
     setVerifyError("");
     setStep("otp");
+  };
+
+  const handleBack = () => {
+    if (step === "otp") {
+      setVerifyError("");
+      setStep("form");
+      return;
+    }
+    if (window.history.state?.idx > 0) {
+      navigate(-1);
+    } else {
+      navigate(ROUTES.HOME);
+    }
   };
 
   const handleVerifyOtp = () => {
@@ -38,7 +53,12 @@ function SignUp() {
     ) : null;
 
   return (
-    <AuthLayout mode="signup" compactLogo={step === "form"} footerNote={termsFooter}>
+    <AuthLayout
+      mode="signup"
+      compactLogo={step === "form"}
+      footerNote={termsFooter}
+      onBack={handleBack}
+    >
       {step === "form" ? (
         <SignUpForm
           initialValues={registrationData}

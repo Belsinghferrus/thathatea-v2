@@ -170,7 +170,7 @@ function MenuSection({
         className="pointer-events-none absolute right-0 bottom-8 z-0 w-52 opacity-25 mix-blend-multiply sm:w-72"
       />
 
-      <div className="relative z-10 mx-auto w-full max-w-[1440px] px-6 lg:px-16">
+      <div className="relative z-10 mx-auto w-full max-w-[1340px] px-6 lg:px-10">
         {/* Top Bar: Category Pills + Search + Sort */}
         <ProductFilters
           categories={categories}
@@ -206,11 +206,11 @@ function MenuSection({
         </div>
 
         {/* Main Content: Left Sidebar + 4x2 Product Grid */}
-        <div className="flex flex-col items-start gap-7 lg:flex-row">
+        <div className="flex flex-col gap-6 lg:flex-row lg:items-stretch">
           {/* Desktop Left Sidebar */}
-          <aside className="hidden w-[250px] shrink-0 lg:block xl:w-[270px]">
-            <div className="flex flex-col rounded-[28px] bg-white p-5 shadow-[0_8px_28px_rgba(44,24,16,0.05)]">
-              <ul className="space-y-1">
+          <aside className="hidden w-[240px] shrink-0 lg:flex xl:w-[258px]">
+            <div className="flex h-full w-full flex-col justify-between rounded-[26px] bg-white p-5 shadow-[0_8px_28px_rgba(44,24,16,0.05)]">
+              <ul className="space-y-1.5">
                 {BEVERAGE_OPTIONS.map((bev) => {
                   const isSelected = activeBeverage === bev;
                   return (
@@ -233,13 +233,13 @@ function MenuSection({
               </ul>
 
               {/* Decorative Cake & Coffee Illustration */}
-              <div className="mt-8 flex flex-col items-center px-2">
+              <div className="mt-6 flex flex-col items-center px-2 pb-2">
                 <img
                   src={sidebarIllustration}
                   alt="Pastry and cup of coffee illustration"
-                  className="h-auto w-44 object-contain"
+                  className="h-auto w-48 object-contain"
                 />
-                <p className="mt-3 text-center font-allura text-3xl leading-tight text-caramel">
+                <p className="mt-4 text-center font-allura text-[32px] leading-tight text-caramel">
                   Every cup has
                   <br />a story
                 </p>
@@ -248,13 +248,13 @@ function MenuSection({
           </aside>
 
           {/* Right Area: Grid / Skeletons / Error / Empty + Pagination */}
-          <div className="w-full min-w-0 flex-1">
+          <div className="flex w-full min-w-0 flex-1 flex-col">
             {loading ? (
-              <div className="grid grid-cols-2 gap-4 md:grid-cols-3 xl:grid-cols-4 xl:gap-5">
+              <div className="grid grid-cols-2 gap-4 md:grid-cols-3 xl:grid-cols-[repeat(4,240px)] xl:justify-between xl:gap-5">
                 {Array.from({ length: 8 }).map((_, idx) => (
                   <div
                     key={idx}
-                    className="h-[270px] animate-pulse rounded-[20px] bg-white/60 sm:h-[290px]"
+                    className="aspect-[240/377] w-full animate-pulse rounded-[26px] bg-white/60 xl:h-[377px] xl:w-[240px]"
                   />
                 ))}
               </div>
@@ -277,7 +277,7 @@ function MenuSection({
                 </button>
               </div>
             ) : paginatedProducts.length > 0 ? (
-              <div className="grid grid-cols-2 gap-4 md:grid-cols-3 xl:grid-cols-4 xl:gap-5">
+              <div className="grid grid-cols-2 gap-4 md:grid-cols-3 xl:grid-cols-[repeat(4,240px)] xl:justify-between xl:gap-5">
                 {paginatedProducts.map((product) => (
                   <ProductCard
                     key={product.id}
@@ -313,9 +313,6 @@ function MenuSection({
             {/* Right-Aligned Circular Pagination Arrows */}
             {!loading && !error && totalPages > 1 && (
               <div className="mt-7 flex items-center justify-end gap-2.5">
-                <span className="mr-2 font-mona text-xs font-medium text-deep-coffee/65">
-                  Page {safePage} of {totalPages}
-                </span>
                 <button
                   type="button"
                   onClick={() => handlePageChange(safePage - 1)}

@@ -126,7 +126,7 @@ function ProductCard({ product, variant = "grid", onQuickView }) {
   }
 
   return (
-    <article className="group relative flex h-[270px] w-full flex-col justify-end overflow-hidden rounded-[20px] bg-[#2C1810] shadow-[0_8px_24px_rgba(44,24,16,0.12)] transition-shadow duration-200 hover:shadow-[0_14px_32px_rgba(44,24,16,0.18)] sm:h-[290px]">
+    <article className="group relative flex aspect-[240/377] w-full flex-col justify-end overflow-hidden rounded-[26px] bg-[#2C1810] shadow-[0_24px_70px_rgba(0,0,0,0.2)] xl:h-[377px] xl:w-[240px]">
       {/* Full-Background Product Image */}
       <img
         src={displayImage}
@@ -136,10 +136,10 @@ function ProductCard({ product, variant = "grid", onQuickView }) {
         className="absolute inset-0 h-full w-full object-cover"
       />
 
-      {/* Dark Bottom Gradient Overlay */}
+      {/* Dark Bottom Gradient Overlay (bottom portion only, keeping upper image bright) */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#180B05]/95 via-[#180B05]/50 to-transparent"
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-[55%] bg-gradient-to-t from-[#1A0D07]/95 via-[#1A0D07]/65 to-transparent"
       />
 
       {/* Quick-View Eye Icon */}
@@ -147,16 +147,16 @@ function ProductCard({ product, variant = "grid", onQuickView }) {
 
       {/* Bottom Product Info & Action */}
       <div className="relative z-10 flex flex-col p-4">
-        <h3 className="line-clamp-1 font-mona text-sm font-bold text-white sm:text-base">
+        <h3 className="line-clamp-1 font-mona text-[15px] font-bold text-white">
           {product.name}
         </h3>
-        <p className="mt-0.5 line-clamp-2 min-h-[2.4em] font-mona text-[11px] leading-snug text-white/80 sm:text-xs">
+        <p className="mt-1 line-clamp-2 min-h-[2.4em] font-mona text-[11px] leading-snug text-white/80">
           {product.description || "Freshly baked at Thatha Tea."}
         </p>
 
         <div className="mt-3 flex items-end justify-between gap-2">
           <div className="flex flex-col leading-tight">
-            <span className="font-mona text-base font-bold text-white sm:text-lg">
+            <span className="font-mona text-base font-bold text-white">
               {formatPrice(sellingPrice)}
             </span>
             {hasDiscount && (
