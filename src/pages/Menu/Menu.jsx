@@ -70,14 +70,17 @@ function Menu() {
           loading={loading}
           onQuickView={handleQuickView}
         />
-        <MenuSection
+        <div>
+          <p>Menu on development</p>
+        </div>
+        {/* <MenuSection
           products={products}
           categories={categories}
           loading={loading}
           error={error}
           onRetry={handleRetry}
           onQuickView={handleQuickView}
-        />
+        /> */}
         <CombosSection products={products} />
       </main>
       <Footer />

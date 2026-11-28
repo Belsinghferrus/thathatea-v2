@@ -5,6 +5,7 @@ import {
   ArrowRight,
   RotateCcw,
   AlertCircle,
+  Loader2,
 } from "lucide-react";
 import sidebarIllustration from "../../assets/images/menu/menu-sidebar.png";
 import bakerySketch from "../../assets/images/menu/sketch.png";
@@ -39,11 +40,11 @@ function MenuSection({
   const [sortOption, setSortOption] = useState("default");
   const [currentPage, setCurrentPage] = useState(1);
 
+  // Local cart state for the UI toggle (Replace with your actual Context in production)
+  const [cartQuantities, setCartQuantities] = useState({});
+
   const itemsPerPage = 8;
-  const showPopularSort = useMemo(
-    () => hasPopularityData(products),
-    [products]
-  );
+  const showPopularSort = useMemo(() => hasPopularityData(products), [products]);
 
   const effectiveCategory = useMemo(() => {
     if (loading || activeCategory === "all") return activeCategory;
@@ -65,12 +66,8 @@ function MenuSection({
     if (effectiveQuery) {
       result = result.filter(
         (p) =>
-          String(p.name || "")
-            .toLowerCase()
-            .includes(effectiveQuery) ||
-          String(p.description || "")
-            .toLowerCase()
-            .includes(effectiveQuery)
+          String(p.name || "").toLowerCase().includes(effectiveQuery) ||
+          String(p.description || "").toLowerCase().includes(effectiveQuery)
       );
     }
 
@@ -79,9 +76,7 @@ function MenuSection({
     } else if (sortOption === "price-high") {
       result.sort((a, b) => getEffectivePrice(b) - getEffectivePrice(a));
     } else if (sortOption === "name-asc") {
-      result.sort((a, b) =>
-        String(a.name || "").localeCompare(String(b.name || ""))
-      );
+      result.sort((a, b) => String(a.name || "").localeCompare(String(b.name || "")));
     } else if (sortOption === "popular" && showPopularSort) {
       result.sort((a, b) => {
         const popA = Number(a.popularity ?? (a.is_popular ? 1 : 0));
@@ -93,16 +88,32 @@ function MenuSection({
     return result;
   }, [products, effectiveCategory, searchQuery, sortOption, showPopularSort]);
 
-  const totalPages = Math.max(
-    1,
-    Math.ceil(filteredProducts.length / itemsPerPage)
-  );
+  const totalPages = Math.max(1, Math.ceil(filteredProducts.length / itemsPerPage));
   const safePage = Math.min(currentPage, totalPages);
   const paginatedProducts = filteredProducts.slice(
     (safePage - 1) * itemsPerPage,
     safePage * itemsPerPage
   );
 
+  // Cart Handlers
+  const handleAdd = (id) => {
+    setCartQuantities((prev) => ({ ...prev, [id]: 1 }));
+  };
+  const handleIncrement = (id) => {
+    setCartQuantities((prev) => ({ ...prev, [id]: (prev[id] || 0) + 1 }));
+  };
+  const handleDecrement = (id) => {
+    setCartQuantities((prev) => {
+      const newQty = (prev[id] || 0) - 1;
+      if (newQty <= 0) {
+        const { [id]: _, ...rest } = prev;
+        return rest;
+      }
+      return { ...prev, [id]: newQty };
+    });
+  };
+
+  // Filter Handlers
   const handleCategoryChange = (catId) => {
     setActiveCategory(catId);
     setActiveBeverage("");
@@ -146,11 +157,12 @@ function MenuSection({
   };
 
   return (
+    // MODIFIED: Fixed height 100svh with flex-col
     <section
       id="menu-catalog"
-      className="relative w-full overflow-hidden bg-[#F4DFC4] pt-12 pb-28 sm:pt-14 lg:pb-32"
+      className="relative flex h-[100svh] w-full flex-col overflow-hidden bg-[#F4DFC4] pt-24 pb-6 lg:pt-28"
     >
-      {/* Top-Left & Top-Right Subtle Botanical / Shop Sketch Decorations */}
+      {/* Background Decorations */}
       <img
         src={topRightLeaves}
         alt=""
@@ -170,46 +182,49 @@ function MenuSection({
         className="pointer-events-none absolute right-0 bottom-8 z-0 w-52 opacity-25 mix-blend-multiply sm:w-72"
       />
 
-      <div className="relative z-10 mx-auto w-full max-w-[1340px] px-6 lg:px-10">
-        {/* Top Bar: Category Pills + Search + Sort */}
-        <ProductFilters
-          categories={categories}
-          activeCategory={effectiveCategory}
-          onCategoryChange={handleCategoryChange}
-          searchQuery={searchQuery}
-          onSearchChange={handleSearchChange}
-          sortOption={sortOption}
-          onSortChange={handleSortChange}
-          showPopularSort={showPopularSort}
-        />
+      {/* Main Container */}
+      <div className="relative z-10 mx-auto flex h-full w-full max-w-[1340px] flex-col px-6 lg:px-10">
+        
+        {/* Top Bar */}
+        <div className="shrink-0">
+          <ProductFilters
+            categories={categories}
+            activeCategory={effectiveCategory}
+            onCategoryChange={handleCategoryChange}
+            searchQuery={searchQuery}
+            onSearchChange={handleSearchChange}
+            sortOption={sortOption}
+            onSortChange={handleSortChange}
+            showPopularSort={showPopularSort}
+          />
 
-        {/* Mobile / Tablet Compact Beverage Bar */}
-        <div className="mb-6 flex items-center gap-2 overflow-x-auto pb-1 lg:hidden no-scrollbar">
-          {BEVERAGE_OPTIONS.map((bev) => {
-            const isSelected = activeBeverage === bev;
-            return (
-              <button
-                key={bev}
-                type="button"
-                onClick={() => handleBeverageClick(bev)}
-                className={`flex shrink-0 cursor-pointer items-center gap-1.5 rounded-full px-3.5 py-2 font-mona text-xs font-medium transition-colors ${
-                  isSelected
-                    ? "bg-[#9C5D28] text-white"
-                    : "bg-white/85 text-deep-coffee hover:bg-white"
-                }`}
-              >
-                <Coffee className="h-3.5 w-3.5" />
-                <span>{bev}</span>
-              </button>
-            );
-          })}
+          {/* Mobile/Tablet Beverage Bar */}
+          <div className="mb-4 flex items-center gap-2 overflow-x-auto pb-1 lg:hidden no-scrollbar shrink-0">
+            {BEVERAGE_OPTIONS.map((bev) => {
+              const isSelected = activeBeverage === bev;
+              return (
+                <button
+                  key={bev}
+                  type="button"
+                  onClick={() => handleBeverageClick(bev)}
+                  className={`flex shrink-0 cursor-pointer items-center gap-1.5 rounded-full px-3.5 py-2 font-mona text-xs font-medium transition-colors ${
+                    isSelected ? "bg-[#9C5D28] text-white" : "bg-white/85 text-deep-coffee hover:bg-white"
+                  }`}
+                >
+                  <Coffee className="h-3.5 w-3.5" />
+                  <span>{bev}</span>
+                </button>
+              );
+            })}
+          </div>
         </div>
 
-        {/* Main Content: Left Sidebar + 4x2 Product Grid */}
-        <div className="flex flex-col gap-6 lg:flex-row lg:items-stretch">
-          {/* Desktop Left Sidebar */}
+        {/* Main Content Area */}
+        <div className="flex flex-1 gap-6 overflow-hidden lg:flex-row lg:items-stretch">
+          
+          {/* Sidebar (Desktop) */}
           <aside className="hidden w-[240px] shrink-0 lg:flex xl:w-[258px]">
-            <div className="flex h-full w-full flex-col justify-between rounded-[26px] bg-white p-5 shadow-[0_8px_28px_rgba(44,24,16,0.05)]">
+            <div className="flex h-full w-full flex-col justify-between overflow-y-auto rounded-[26px] bg-white p-5 shadow-[0_8px_28px_rgba(44,24,16,0.05)] scrollbar-hide">
               <ul className="space-y-1.5">
                 {BEVERAGE_OPTIONS.map((bev) => {
                   const isSelected = activeBeverage === bev;
@@ -232,7 +247,6 @@ function MenuSection({
                 })}
               </ul>
 
-              {/* Decorative Cake & Coffee Illustration */}
               <div className="mt-6 flex flex-col items-center px-2 pb-2">
                 <img
                   src={sidebarIllustration}
@@ -247,78 +261,74 @@ function MenuSection({
             </div>
           </aside>
 
-          {/* Right Area: Grid / Skeletons / Error / Empty + Pagination */}
-          <div className="flex w-full min-w-0 flex-1 flex-col">
-            {loading ? (
-              <div className="grid grid-cols-2 gap-4 md:grid-cols-3 xl:grid-cols-[repeat(4,240px)] xl:justify-between xl:gap-5">
-                {Array.from({ length: 8 }).map((_, idx) => (
-                  <div
-                    key={idx}
-                    className="aspect-[240/377] w-full animate-pulse rounded-[26px] bg-white/60 xl:h-[377px] xl:w-[240px]"
-                  />
-                ))}
-              </div>
-            ) : error ? (
-              <div className="flex min-h-[360px] flex-col items-center justify-center rounded-[28px] bg-white/75 px-6 py-12 text-center backdrop-blur-sm">
-                <AlertCircle className="mb-3 h-10 w-10 text-caramel" />
-                <h3 className="font-mona text-lg font-bold text-deep-coffee">
-                  Unable to load menu items
-                </h3>
-                <p className="mt-1 max-w-md font-mona text-sm text-deep-coffee/70">
-                  {error}
-                </p>
-                <button
-                  type="button"
-                  onClick={onRetry}
-                  className="mt-5 inline-flex cursor-pointer items-center gap-2 rounded-full bg-[#9C5D28] px-6 py-2.5 font-mona text-xs font-semibold uppercase tracking-wider text-white transition-colors hover:bg-deep-coffee"
-                >
-                  <RotateCcw className="h-3.5 w-3.5" />
-                  <span>Retry</span>
-                </button>
-              </div>
-            ) : paginatedProducts.length > 0 ? (
-              <div className="grid grid-cols-2 gap-4 md:grid-cols-3 xl:grid-cols-[repeat(4,240px)] xl:justify-between xl:gap-5">
-                {paginatedProducts.map((product) => (
-                  <ProductCard
-                    key={product.id}
-                    product={product}
-                    variant="grid"
-                    onQuickView={onQuickView}
-                  />
-                ))}
-              </div>
-            ) : (
-              <div className="flex min-h-[360px] flex-col items-center justify-center rounded-[28px] bg-white/75 px-6 py-12 text-center backdrop-blur-sm">
-                <Coffee className="mb-3 h-10 w-10 text-[#9C5D28]/45" />
-                <h3 className="font-mona text-lg font-bold text-deep-coffee">
-                  {activeBeverage
-                    ? `${activeBeverage} is served fresh at our outlets`
-                    : "No bakery products found"}
-                </h3>
-                <p className="mt-1 max-w-md font-mona text-sm text-deep-coffee/70">
-                  {activeBeverage
-                    ? "Online ordering currently lists our fresh bakery selection. Clear the filter to browse all bakery treats."
-                    : "Try adjusting your search keyword or switching category filters."}
-                </p>
-                <button
-                  type="button"
-                  onClick={handleClearFilters}
-                  className="mt-5 cursor-pointer rounded-full bg-[#9C5D28] px-6 py-2.5 font-mona text-xs font-semibold uppercase tracking-wider text-white transition-colors hover:bg-deep-coffee"
-                >
-                  Show All Bakery Items
-                </button>
-              </div>
-            )}
+          {/* Right Area: Grid + Pagination */}
+          <div className="flex min-w-0 flex-1 flex-col overflow-hidden">
+            
+            {/* Scrollable Grid Area */}
+            <div className="flex-1 overflow-y-auto pr-2 pb-4 scrollbar-hide">
+              {loading ? (
+                <div className="flex h-full items-center justify-center">
+                   <Loader2 className="h-10 w-10 animate-spin text-[#9C5D28]" />
+                </div>
+              ) : error ? (
+                <div className="flex min-h-[360px] flex-col items-center justify-center rounded-[28px] bg-white/75 px-6 py-12 text-center backdrop-blur-sm">
+                  <AlertCircle className="mb-3 h-10 w-10 text-caramel" />
+                  <h3 className="font-mona text-lg font-bold text-deep-coffee">Unable to load menu items</h3>
+                  <p className="mt-1 max-w-md font-mona text-sm text-deep-coffee/70">{error}</p>
+                  <button
+                    type="button"
+                    onClick={onRetry}
+                    className="mt-5 inline-flex cursor-pointer items-center gap-2 rounded-full bg-[#9C5D28] px-6 py-2.5 font-mona text-xs font-semibold uppercase tracking-wider text-white transition-colors hover:bg-deep-coffee"
+                  >
+                    <RotateCcw className="h-3.5 w-3.5" />
+                    <span>Retry</span>
+                  </button>
+                </div>
+              ) : paginatedProducts.length > 0 ? (
+                <div className="grid grid-cols-2 gap-4 md:grid-cols-3 xl:grid-cols-4 lg:gap-5">
+                  {paginatedProducts.map((product) => (
+                    <ProductCard
+                      key={product.id}
+                      product={product}
+                      variant="grid"
+                      onQuickView={onQuickView}
+                      qty={cartQuantities[product.id] || 0}
+                      onAdd={handleAdd}
+                      onIncrement={handleIncrement}
+                      onDecrement={handleDecrement}
+                    />
+                  ))}
+                </div>
+              ) : (
+                <div className="flex min-h-[360px] flex-col items-center justify-center rounded-[28px] bg-white/75 px-6 py-12 text-center backdrop-blur-sm">
+                  <Coffee className="mb-3 h-10 w-10 text-[#9C5D28]/45" />
+                  <h3 className="font-mona text-lg font-bold text-deep-coffee">
+                    {activeBeverage ? `${activeBeverage} is served fresh at our outlets` : "No bakery products found"}
+                  </h3>
+                  <p className="mt-1 max-w-md font-mona text-sm text-deep-coffee/70">
+                    {activeBeverage
+                      ? "Online ordering currently lists our fresh bakery selection. Clear the filter to browse all bakery treats."
+                      : "Try adjusting your search keyword or switching category filters."}
+                  </p>
+                  <button
+                    type="button"
+                    onClick={handleClearFilters}
+                    className="mt-5 cursor-pointer rounded-full bg-[#9C5D28] px-6 py-2.5 font-mona text-xs font-semibold uppercase tracking-wider text-white transition-colors hover:bg-deep-coffee"
+                  >
+                    Show All Bakery Items
+                  </button>
+                </div>
+              )}
+            </div>
 
-            {/* Right-Aligned Circular Pagination Arrows */}
+            {/* Pagination - Anchored to bottom right */}
             {!loading && !error && totalPages > 1 && (
-              <div className="mt-7 flex items-center justify-end gap-2.5">
+              <div className="mt-2 flex shrink-0 items-center justify-end gap-2.5 px-2">
                 <button
                   type="button"
                   onClick={() => handlePageChange(safePage - 1)}
                   disabled={safePage === 1}
-                  aria-label="Previous page"
-                  className="flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-[#9C5D28]/25 bg-white text-[#9C5D28] shadow-xs transition-colors hover:bg-[#9C5D28] hover:text-white disabled:cursor-not-allowed disabled:opacity-35 disabled:hover:bg-white disabled:hover:text-[#9C5D28]"
+                  className="flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-[#9C5D28]/25 bg-white text-[#9C5D28] shadow-sm transition-colors hover:bg-[#9C5D28] hover:text-white disabled:cursor-not-allowed disabled:opacity-35"
                 >
                   <ArrowLeft className="h-4 w-4" />
                 </button>
@@ -326,16 +336,22 @@ function MenuSection({
                   type="button"
                   onClick={() => handlePageChange(safePage + 1)}
                   disabled={safePage === totalPages}
-                  aria-label="Next page"
-                  className="flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-[#9C5D28]/25 bg-white text-[#9C5D28] shadow-xs transition-colors hover:bg-[#9C5D28] hover:text-white disabled:cursor-not-allowed disabled:opacity-35 disabled:hover:bg-white disabled:hover:text-[#9C5D28]"
+                  className="flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-[#9C5D28]/25 bg-white text-[#9C5D28] shadow-sm transition-colors hover:bg-[#9C5D28] hover:text-white disabled:cursor-not-allowed disabled:opacity-35"
                 >
                   <ArrowRight className="h-4 w-4" />
                 </button>
               </div>
             )}
+            
           </div>
         </div>
       </div>
+      
+      {/* Utility to hide scrollbar */}
+      <style dangerouslySetInnerHTML={{__html: `
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+      `}} />
     </section>
   );
 }

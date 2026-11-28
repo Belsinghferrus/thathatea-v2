@@ -1,26 +1,17 @@
-import {
-  Coffee,
-  Cookie,
-  CakeSlice,
-  Croissant,
-  Utensils,
-  Search,
-  ChevronDown,
-} from "lucide-react";
+import React from "react";
+import { Search, ChevronDown, Coffee, Cookie, CakeSlice, Croissant, Utensils } from "lucide-react";
 
-const CATEGORY_ICON_MAP = {
-  Cookies: Cookie,
-  Muffin: CakeSlice,
-  Bun: Croissant,
-  Cakes: CakeSlice,
-  Others: Utensils,
+// Map category names to icons
+const getCategoryIcon = (name) => {
+  const lower = name.toLowerCase();
+  if (lower.includes("cookie")) return Cookie;
+  if (lower.includes("muffin") || lower.includes("cake")) return CakeSlice;
+  if (lower.includes("bun")) return Croissant;
+  if (lower.includes("other")) return Utensils;
+  return Coffee;
 };
 
-function getCategoryIcon(name) {
-  return CATEGORY_ICON_MAP[String(name || "").trim()] || Coffee;
-}
-
-function ProductFilters({
+export default function ProductFilters({
   categories,
   activeCategory,
   onCategoryChange,
@@ -31,87 +22,68 @@ function ProductFilters({
   showPopularSort,
 }) {
   return (
-    <div className="mb-7 flex flex-col justify-between gap-4 xl:flex-row xl:items-center">
-      {/* Category Navigation Container */}
-      <div
-        role="tablist"
-        aria-label="Bakery Categories"
-        className="flex items-center gap-1.5 overflow-x-auto rounded-full bg-white p-1.5 shadow-[0_4px_18px_rgba(44,24,16,0.06)] no-scrollbar"
-      >
+    <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between mb-6">
+      {/* Category Tabs */}
+      <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-hide lg:pb-0">
         <button
-          type="button"
-          role="tab"
-          aria-selected={activeCategory === "all"}
           onClick={() => onCategoryChange("all")}
-          className={`flex shrink-0 cursor-pointer items-center gap-1.5 whitespace-nowrap rounded-full px-4 py-2 font-mona text-xs font-semibold uppercase tracking-wider transition-colors duration-200 ${
+          className={`flex shrink-0 items-center gap-2 rounded-full px-5 py-2.5 font-mona text-[13px] font-semibold uppercase tracking-wider transition-all ${
             activeCategory === "all"
-              ? "bg-[#9C5D28] text-white shadow-sm"
-              : "text-[#5C4033] hover:bg-[#F6EFE6]"
+              ? "bg-[#9C5D28] text-white shadow-md"
+              : "bg-white/80 text-[#2C1810] hover:bg-white"
           }`}
         >
-          <Coffee className="h-3.5 w-3.5" />
-          <span>All</span>
+          <Coffee className="h-4 w-4" />
+          All
         </button>
 
         {categories.map((cat) => {
           const Icon = getCategoryIcon(cat.name);
-          const idStr = String(cat.id);
-          const isActive = activeCategory === idStr;
-
           return (
             <button
               key={cat.id}
-              type="button"
-              role="tab"
-              aria-selected={isActive}
-              onClick={() => onCategoryChange(idStr)}
-              className={`flex shrink-0 cursor-pointer items-center gap-1.5 whitespace-nowrap rounded-full px-4 py-2 font-mona text-xs font-semibold uppercase tracking-wider transition-colors duration-200 ${
-                isActive
-                  ? "bg-[#9C5D28] text-white shadow-sm"
-                  : "text-[#5C4033] hover:bg-[#F6EFE6]"
+              onClick={() => onCategoryChange(String(cat.id))}
+              className={`flex shrink-0 items-center gap-2 whitespace-nowrap rounded-full px-5 py-2.5 font-mona text-[13px] font-semibold uppercase tracking-wider transition-all ${
+                activeCategory === String(cat.id)
+                  ? "bg-[#9C5D28] text-white shadow-md"
+                  : "bg-white/80 text-[#2C1810] hover:bg-white"
               }`}
             >
-              <Icon className="h-3.5 w-3.5" />
-              <span>{cat.name}</span>
+              <Icon className="h-4 w-4" />
+              {cat.name}
             </button>
           );
         })}
       </div>
 
-      {/* Search & Sorting Controls */}
-      <div className="flex flex-col items-stretch gap-3 sm:flex-row sm:items-center">
-        {/* Search Input */}
-        <div className="relative w-full sm:w-56 lg:w-64">
-          <Search className="pointer-events-none absolute top-1/2 left-4 h-4 w-4 -translate-y-1/2 text-[#9C5D28]/65" />
+      {/* Search & Sort */}
+      <div className="flex items-center gap-3 shrink-0">
+        <div className="relative flex-1 lg:w-64">
+          <Search className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-[#2C1810]/50" />
           <input
-            type="search"
+            type="text"
+            placeholder="Search..."
             value={searchQuery}
             onChange={(e) => onSearchChange(e.target.value)}
-            placeholder="Search..."
-            aria-label="Search bakery products"
-            className="w-full rounded-full bg-white py-2.5 pr-4 pl-10 font-mona text-sm text-deep-coffee shadow-[0_4px_14px_rgba(44,24,16,0.05)] outline-none transition-shadow placeholder:text-[#5C4033]/50 focus:ring-2 focus:ring-[#9C5D28]/35"
+            className="w-full rounded-full border border-[#A76024]/20 bg-white/80 py-3 pl-11 pr-4 font-mona text-sm text-[#2C1810] outline-none placeholder:text-[#2C1810]/40 focus:border-[#9C5D28] focus:ring-2 focus:ring-[#9C5D28]/20"
           />
         </div>
 
-        {/* Sort Dropdown */}
-        <div className="relative w-full sm:w-auto">
+        <div className="relative">
           <select
             value={sortOption}
             onChange={(e) => onSortChange(e.target.value)}
-            aria-label="Sort products"
-            className="w-full cursor-pointer appearance-none rounded-full bg-white py-2.5 pr-10 pl-5 font-mona text-xs font-semibold text-[#5C4033] shadow-[0_4px_14px_rgba(44,24,16,0.05)] outline-none transition-shadow focus:ring-2 focus:ring-[#9C5D28]/35 sm:text-sm"
+            className="appearance-none cursor-pointer rounded-full border border-[#A76024]/20 bg-white/80 py-3 pl-4 pr-10 font-mona text-sm font-medium text-[#2C1810] outline-none focus:border-[#9C5D28] focus:ring-2 focus:ring-[#9C5D28]/20"
           >
-            <option value="default">Sort By : Featured</option>
             {showPopularSort && <option value="popular">Sort By : Popular</option>}
+            <option value="default">Sort By : Default</option>
             <option value="price-low">Price : Low to High</option>
             <option value="price-high">Price : High to Low</option>
             <option value="name-asc">Name : A to Z</option>
           </select>
-          <ChevronDown className="pointer-events-none absolute top-1/2 right-4 h-4 w-4 -translate-y-1/2 text-[#9C5D28]" />
+          <ChevronDown className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[#9C5D28]" />
         </div>
       </div>
     </div>
   );
 }
-
-export default ProductFilters;

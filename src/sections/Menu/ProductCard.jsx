@@ -1,189 +1,100 @@
-import { useState } from "react";
-import { Eye, Sparkles } from "lucide-react";
-import { useShop } from "../../context/ShopContext";
+import React from "react";
+import { Plus, Minus, Eye } from "lucide-react";
 import {
-  formatPrice,
   getEffectivePrice,
-  getFallbackProductImage,
   getOriginalPrice,
-  getProductImageUrl,
-  isProductAvailable,
   productHasDiscount,
-} from "../../services/productService";
+  getProductImageUrl,
+  formatPrice,
+} from "../../services/productService"; // Adjust path to your menuData file
 
-function ProductCard({ product, variant = "grid", onQuickView }) {
-  const { addToCart } = useShop();
-  const [imgFailed, setImgFailed] = useState(false);
-  const [justAdded, setJustAdded] = useState(false);
-
-  const apiImageUrl = getProductImageUrl(product);
-  const fallbackImage = getFallbackProductImage(product.category_name);
-  const displayImage = !imgFailed && apiImageUrl ? apiImageUrl : fallbackImage;
-
-  const sellingPrice = getEffectivePrice(product);
+export default function ProductCard({ 
+  product, 
+  variant = "grid", 
+  onQuickView,
+  qty = 0,
+  onAdd,
+  onIncrement,
+  onDecrement
+}) {
+  const price = getEffectivePrice(product);
   const originalPrice = getOriginalPrice(product);
   const hasDiscount = productHasDiscount(product);
-  const available = isProductAvailable(product);
-  const isVerifiedPopular =
-    product?.is_popular === true || product?.is_bestseller === true;
+  const imageUrl = getProductImageUrl(product) || "https://thathatea.com/_next/image?url=/images/logo.png&w=256&q=75";
+  
+  return (
+    <div className="group relative flex flex-col  rounded-[20px] bg-[#FCF7F0] shadow-sm transition-all duration-300 hover:shadow-md">
+      
+      {/* Image Section with Gradient Overlay */}
+      <div className="relative h-[300px] w-full overflow-hidden sm:h-[240px] xl:h-[350px]">
+        <img
+          src={imageUrl}
+          alt={product.name}
+          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          onError={(e) => {
+            e.target.src = "https://thathatea.com/_next/image?url=/images/logo.png&w=256&q=75";
+          }}
+        />
+        
+        {/* Quick View Button (Optional, based on your old code) */}
+        {onQuickView && (
+          <button 
+            onClick={() => onQuickView(product)}
+            className="absolute right-3 top-3 z-20 flex h-8 w-8 items-center justify-center rounded-full bg-white/80 text-[#2C1810] opacity-0 shadow-sm backdrop-blur-sm transition-opacity group-hover:opacity-100"
+          >
+            <Eye className="h-4 w-4" />
+          </button>
+        )}
 
-  const handleAdd = (e) => {
-    e.stopPropagation();
-    if (!available) return;
-    addToCart({
-      id: product.id,
-      name: product.name,
-      price: sellingPrice,
-      image: displayImage,
-      inStock: available,
-      min: product.min,
-      max: product.max,
-    });
-    setJustAdded(true);
-    window.setTimeout(() => setJustAdded(false), 1100);
-  };
-
-  const handleOpenQuickView = (e) => {
-    e.stopPropagation();
-    if (onQuickView) {
-      onQuickView(product, e.currentTarget);
-    }
-  };
-
-  const eyeButton = (
-    <button
-      type="button"
-      onClick={handleOpenQuickView}
-      aria-label={`Quick view ${product.name}`}
-      className="absolute top-3 right-3 z-20 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-black/45 text-white backdrop-blur-sm transition-opacity duration-200 hover:bg-black/65 focus:opacity-100 focus:outline-2 focus:outline-offset-2 focus:outline-white opacity-100 md:opacity-0 md:group-hover:opacity-100 md:group-focus-within:opacity-100"
-    >
-      <Eye className="h-4 w-4" />
-    </button>
-  );
-
-  if (variant === "bestseller") {
-    return (
-      <article className="group relative flex h-full flex-col overflow-hidden rounded-[20px] bg-white shadow-[0_6px_22px_rgba(44,24,16,0.06)] transition-shadow duration-200 hover:shadow-[0_12px_28px_rgba(44,24,16,0.11)]">
-        {/* Upper Product Image */}
-        <div className="relative h-40 w-full shrink-0 overflow-hidden bg-[#F4EADD]">
-          <img
-            src={displayImage}
-            alt={product.name}
-            onError={() => setImgFailed(true)}
-            loading="lazy"
-            className="h-full w-full object-cover"
-          />
-
-          {isVerifiedPopular && (
-            <span className="absolute top-2.5 left-2.5 z-10 inline-flex items-center gap-1 rounded-full bg-white/95 px-2.5 py-0.5 font-mona text-[10px] font-bold uppercase tracking-wider text-caramel shadow-xs">
-              <Sparkles className="h-2.5 w-2.5" />
-              Popular
-            </span>
-          )}
-
-          {eyeButton}
-        </div>
-
-        {/* Lower White Product Info */}
-        <div className="flex flex-1 flex-col p-4">
-          <h3 className="line-clamp-1 font-mona text-sm font-bold text-deep-coffee sm:text-[15px]">
+        {/* Dark Gradient for readability */}
+        <div className="absolute inset-x-0 bottom-0 h-3/4 bg-gradient-to-t from-[#2C1810] via-[#2C1810]/80 to-transparent pointer-events-none" />
+        
+        {/* Content inside the gradient */}
+        <div className="absolute inset-x-0 bottom-0 flex flex-col p-3 sm:p-4 z-10">
+          <h3 className="font-mona text-sm font-bold text-white sm:text-base line-clamp-1">
             {product.name}
           </h3>
-          <p className="mt-1 line-clamp-2 min-h-[2.4em] font-mona text-xs leading-snug text-deep-coffee/65">
-            {product.description || "Freshly prepared at Thatha Tea."}
+          <p className="mt-1 font-mona text-[10px] text-white/70 sm:text-xs line-clamp-2">
+            {product.description || "A warm and soft eggless treat."}
           </p>
-
-          <div className="mt-auto flex items-end justify-between gap-2 pt-3">
-            <div className="flex flex-col">
-              <span className="font-mona text-base font-bold text-deep-coffee">
-                {formatPrice(sellingPrice)}
+          
+          {/* Price and Action Toggle */}
+          <div className="mt-3 flex items-center justify-between">
+            <div className="flex items-baseline gap-2">
+              <span className="font-thunder text-lg text-white sm:text-xl">
+                {formatPrice(price)}
               </span>
               {hasDiscount && (
-                <span className="font-mona text-[11px] font-medium text-caramel line-through">
+                <span className="font-mona text-xs text-white/50 line-through">
                   {formatPrice(originalPrice)}
                 </span>
               )}
             </div>
 
-            <button
-              type="button"
-              onClick={handleAdd}
-              disabled={!available}
-              className={`cursor-pointer rounded-lg px-3.5 py-1.5 font-mona text-[11px] font-bold uppercase tracking-wide transition-colors ${
-                !available
-                  ? "cursor-not-allowed bg-neutral-200 text-neutral-400"
-                  : justAdded
-                    ? "bg-deep-coffee text-white"
-                    : "bg-[#F3EFEA] text-deep-coffee hover:bg-caramel hover:text-white"
-              }`}
-            >
-              {!available ? "Out" : justAdded ? "Added" : "Add"}
-            </button>
-          </div>
-        </div>
-      </article>
-    );
-  }
-
-  return (
-    <article className="group relative flex aspect-[240/377] w-full flex-col justify-end overflow-hidden rounded-[26px] bg-[#2C1810] shadow-[0_24px_70px_rgba(0,0,0,0.2)] xl:h-[377px] xl:w-[240px]">
-      {/* Full-Background Product Image */}
-      <img
-        src={displayImage}
-        alt={product.name}
-        onError={() => setImgFailed(true)}
-        loading="lazy"
-        className="absolute inset-0 h-full w-full object-cover"
-      />
-
-      {/* Dark Bottom Gradient Overlay (bottom portion only, keeping upper image bright) */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-[55%] bg-gradient-to-t from-[#1A0D07]/95 via-[#1A0D07]/65 to-transparent"
-      />
-
-      {/* Quick-View Eye Icon */}
-      {eyeButton}
-
-      {/* Bottom Product Info & Action */}
-      <div className="relative z-10 flex flex-col p-4">
-        <h3 className="line-clamp-1 font-mona text-[15px] font-bold text-white">
-          {product.name}
-        </h3>
-        <p className="mt-1 line-clamp-2 min-h-[2.4em] font-mona text-[11px] leading-snug text-white/80">
-          {product.description || "Freshly baked at Thatha Tea."}
-        </p>
-
-        <div className="mt-3 flex items-end justify-between gap-2">
-          <div className="flex flex-col leading-tight">
-            <span className="font-mona text-base font-bold text-white">
-              {formatPrice(sellingPrice)}
-            </span>
-            {hasDiscount && (
-              <span className="font-mona text-[11px] font-medium text-[#E8BA88] line-through">
-                {formatPrice(originalPrice)}
-              </span>
+            {/* Add to Cart Toggle */}
+            {qty === 0 ? (
+              <button
+                onClick={() => onAdd(product.id)}
+                className="rounded-md bg-[#9C5D28] px-4 py-1.5 font-mona text-xs font-semibold uppercase tracking-wider text-white transition-colors hover:bg-[#7a4720]"
+              >
+                ADD
+              </button>
+            ) : (
+              <div className="flex items-center gap-3 rounded-md bg-[#9C5D28] px-2 py-1.5 text-white">
+                <button onClick={() => onDecrement(product.id)} className="hover:text-gray-300">
+                  <Minus className="h-3.5 w-3.5" />
+                </button>
+                <span className="font-mona text-sm font-semibold min-w-[12px] text-center">
+                  {qty}
+                </span>
+                <button onClick={() => onIncrement(product.id)} className="hover:text-gray-300">
+                  <Plus className="h-3.5 w-3.5" />
+                </button>
+              </div>
             )}
           </div>
-
-          <button
-            type="button"
-            onClick={handleAdd}
-            disabled={!available}
-            className={`cursor-pointer rounded-lg px-4 py-1.5 font-mona text-[11px] font-bold uppercase tracking-wider text-white transition-colors ${
-              !available
-                ? "cursor-not-allowed bg-white/20 text-white/60"
-                : justAdded
-                  ? "bg-deep-coffee"
-                  : "bg-[#A76024] hover:bg-[#8E4F1B]"
-            }`}
-          >
-            {!available ? "Out" : justAdded ? "Added" : "Add"}
-          </button>
         </div>
       </div>
-    </article>
+    </div>
   );
 }
-
-export default ProductCard;

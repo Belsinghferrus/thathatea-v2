@@ -15,8 +15,8 @@ import logo from "../assets/images/logo.webp";
 const ENABLE_DEMO_NAV_LINKS = true;
 
 const DEMO_NAV_LINKS = [
-    { label: "My Orders", path: ROUTES.ORDERS },
-    { label: "My Profile", path: ROUTES.PROFILE },
+    { label: "My Orders", path: ROUTES.ORDERS, icon: Package },
+    { label: "My Profile", path: ROUTES.PROFILE, icon: User },
 ];
 
 function Navbar() {
@@ -81,7 +81,7 @@ function Navbar() {
         return () => window.removeEventListener("keydown", onKeyDown);
     }, []);
 
-    // Filter out "CAREER" from NAV_LINKS (Using link.label)
+    // Filter out "CAREER" from NAV_LINKS
     const filteredNavLinks = NAV_LINKS.filter(link => link.label.toUpperCase() !== "CAREER");
 
     // Nav Link Class
@@ -124,7 +124,7 @@ function Navbar() {
                     {/* Desktop Navigation Links */}
                     <nav className="hidden items-center gap-2.5 lg:flex xl:gap-5" aria-label="Primary">
                         {filteredNavLinks.map((link) => {
-                            // Handle the MENU dropdown special case (Using link.label)
+                            // Handle the MENU dropdown special case
                             if (link.label.toUpperCase() === "MENU") {
                                 return (
                                     <div 
@@ -190,38 +190,34 @@ function Navbar() {
                                 </NavLink>
                             );
                         })}
-
-                        {/* TEMPORARY DEMO NAVIGATION: Remove before production */}
-                        {ENABLE_DEMO_NAV_LINKS &&
-                            DEMO_NAV_LINKS.map((link) => (
-                                <NavLink
-                                    key={link.path}
-                                    to={link.path}
-                                    className={({ isActive }) =>
-                                        `${navLinkClass({ isActive })} whitespace-nowrap`
-                                    }
-                                >
-                                    {({ isActive }) => (
-                                        <span className="relative inline-flex items-center gap-1.5">
-                                            <span>{link.label}</span>
-                                            <span className="rounded-full bg-[#EFE3CF] px-1.5 py-0.5 text-[9px] font-semibold tracking-wider text-caramel">
-                                                DEMO
-                                            </span>
-                                            <span
-                                                className={[
-                                                    "absolute -bottom-1 left-0 h-[2px] rounded-full bg-caramel transition-all duration-300",
-                                                    isActive ? "w-full opacity-100" : "w-0 opacity-0",
-                                                ].join(" ")}
-                                            />
-                                        </span>
-                                    )}
-                                </NavLink>
-                            ))}
                     </nav>
 
                     {/* Right Side Actions */}
                     <div className="flex items-center gap-4 lg:gap-6">
                         
+                        {/* TEMPORARY DEMO NAVIGATION: Added to right side as icons */}
+                        {ENABLE_DEMO_NAV_LINKS && (
+                            <div className="hidden lg:flex items-center gap-4 border-r border-deep-coffee/10 pr-4 mr-1">
+                                {DEMO_NAV_LINKS.map((link) => {
+                                    const Icon = link.icon;
+                                    return (
+                                        <NavLink
+                                            key={link.path}
+                                            to={link.path}
+                                            className="group relative flex items-center justify-center text-deep-coffee/70 transition-colors hover:text-caramel"
+                                            title={`DEMO: ${link.label}`}
+                                        >
+                                            <Icon className="h-5 w-5" strokeWidth={1.8} />
+                                            {/* Tiny Demo Badge */}
+                                            <span className="absolute -right-2 -top-1.5 text-[8px] font-bold text-red-500">
+                                                DEMO
+                                            </span>
+                                        </NavLink>
+                                    );
+                                })}
+                            </div>
+                        )}
+
                         {/* Cart Icon */}
                         <NavLink 
                             to={ROUTES.CART} 
@@ -336,27 +332,6 @@ function Navbar() {
                             )}
                         </div>
                     ))}
-
-                    {/* TEMPORARY DEMO NAVIGATION: Remove before production */}
-                    {ENABLE_DEMO_NAV_LINKS &&
-                        DEMO_NAV_LINKS.map((link) => (
-                            <NavLink
-                                key={link.path}
-                                to={link.path}
-                                className={({ isActive }) =>
-                                    `flex items-center justify-between px-4 py-3 font-mona text-sm font-light uppercase tracking-widest transition-colors ${
-                                        isActive
-                                            ? "font-normal text-caramel"
-                                            : "text-deep-coffee hover:text-caramel"
-                                    }`
-                                }
-                            >
-                                <span>{link.label}</span>
-                                <span className="rounded-full bg-[#EFE3CF] px-2 py-0.5 text-[9px] font-semibold tracking-wider text-caramel">
-                                    DEMO
-                                </span>
-                            </NavLink>
-                        ))}
                 </div>
 
                 {/* Mobile User Actions */}
@@ -383,6 +358,37 @@ function Navbar() {
                         </NavLink>
                     )}
                 </div>
+
+                {/* TEMPORARY DEMO NAVIGATION (Mobile) */}
+                {ENABLE_DEMO_NAV_LINKS && (
+                    <div className="flex flex-col gap-1 pt-4 border-t border-deep-coffee/10 mt-2">
+                        <p className="px-4 pb-2 text-xs font-mona font-semibold uppercase tracking-widest text-red-500/70">
+                            Demo Links
+                        </p>
+                        {DEMO_NAV_LINKS.map((link) => {
+                            const Icon = link.icon;
+                            return (
+                                <NavLink
+                                    key={link.path}
+                                    to={link.path}
+                                    className={({ isActive }) =>
+                                        `flex items-center justify-between px-4 py-3 font-mona text-sm font-light uppercase tracking-widest transition-colors ${
+                                            isActive ? "text-caramel font-normal" : "text-deep-coffee hover:text-caramel"
+                                        }`
+                                    }
+                                >
+                                    <div className="flex items-center gap-6">
+                                        <Icon className="h-5 w-5 opacity-70" />
+                                        <span>{link.label}</span>
+                                    </div>
+                                    <span className="rounded-full bg-red-100 px-2 py-0.5 mb-4 text-[9px] font-semibold tracking-wider text-red-600">
+                                        DEMO
+                                    </span>
+                                </NavLink>
+                            );
+                        })}
+                    </div>
+                )}
             </div>
         </>
     );
